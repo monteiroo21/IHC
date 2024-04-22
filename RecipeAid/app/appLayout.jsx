@@ -1,12 +1,14 @@
 import { View, StatusBar } from 'react-native'
 import React from 'react'
+import GlobalProvider from '../context/GlobalProvider'
 
 const AppLayout = () => {
     return (
-        <View>
-            <StatusBar hidden={true} />
-            <Text>AppLayout</Text>
-        </View>
+        <GlobalProvider>
+            <View>
+                <Text>AppLayout</Text>
+            </View>
+        </GlobalProvider>
     )
 }
 
