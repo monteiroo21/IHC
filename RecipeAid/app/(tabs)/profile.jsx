@@ -9,7 +9,8 @@ const Profile = () => {
         <SafeAreaView className="bg-gray-200 h-full">
             <ScrollView>
                 <View className="justify-center items-center">
-                    <Image source={icons.persona} resizeMode='contain' className="w-40 h-40" />
+                    <Image source={icons.persona} resizeMode='contain' className="w-60 h-60 rounded-full"/>
+                    <Text className="">John Doe</Text> 
                 </View>
             </ScrollView>
         </SafeAreaView>
