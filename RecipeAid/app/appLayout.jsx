@@ -1,14 +1,17 @@
-import { View, StatusBar } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import GlobalProvider from '../context/GlobalProvider'
+import { SplashScreen, Stack } from 'expo-router'
 
 const AppLayout = () => {
     return (
         <GlobalProvider>
-            <View>
-                <Text>AppLayout</Text>
-            </View>
+            <Stack>
+                <Stack.Screen name="index" options={{ headerShown: false }} />
+                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            </Stack>
+
         </GlobalProvider>
+
     )
 }
 

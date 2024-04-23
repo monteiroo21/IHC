@@ -1,4 +1,4 @@
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, StatusBar, Text, View } from 'react-native';
 import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useEffect } from 'react';
@@ -21,6 +21,8 @@ export default function App() {
                     </Text>
                 </View>
             </ScrollView>
+
+            <StatusBar backgroundColor='#D1D5DB' />
         </SafeAreaView >
     );
 }
