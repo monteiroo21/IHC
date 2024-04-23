@@ -3,6 +3,7 @@ import React from 'react'
 import { icons } from '../../constants/icons';
 import { Tabs } from 'expo-router';
 import { useFonts } from 'expo-font'
+import NavBar from '../../components/NavBar';
 
 const TabIcon = ({ icon, color, name, focused, iconBold }) => {
     return (
@@ -19,6 +20,7 @@ const TabIcon = ({ icon, color, name, focused, iconBold }) => {
 const TabsLayout = () => {
     return (
         <>
+            <NavBar />
             <StatusBar backgroundColor='#E5E7EB' />
             <Tabs screenOptions={{
                 tabBarShowLabel: false,

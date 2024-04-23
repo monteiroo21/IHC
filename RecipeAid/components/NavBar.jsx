@@ -1,47 +1,39 @@
 import React from 'react';
-import { View, Text, Image, StatusBar } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
-import { icons } from '../constants/icons';
-import Home from '../app/(tabs)/home';
-
-const Tab = createBottomTabNavigator();
-
-const TabIcon = ({ icon, color, name, focused, iconBold }) => {
-    return (
-        <View className="items-center justify-center gap-2">
-            <Image source={focused ? iconBold : icon} resizeMode='contain' tintColor={color} className="w-7 h-7" />
-            <Text className={`${focused ? 'font-extrabold' : 'font-medium'} text-s`} style={{ color: color }}>
-                {name}
-            </Text>
-        </View>
-    )
-
-}
+import { View } from 'react-native';
+import { Header, Icon } from 'react-native-elements';
 
 const NavBar = () => {
-  return (
-      <Tab.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-          tabBarActiveTintColor: "#f0edf6",
-          tabBarInactiveTintColor: "#3e2465",
-          tabBarStyle: { backgroundColor: '#694fad' }
-        }}
-      >
-        <Tab.Screen
-          name="Home" 
-          component={Home}
-          options={{
-            tabBarLabel: 'Home',
-            headerShown: false,
-            tabBarIcon: ({ color, focused }) => (
-              <TabIcon icon="home" color={color} name="Home" focused={focused} />
-            )
-          }}
+    return (
+        <Header
+            containerStyle={{
+                height: 70, // Increase the height to provide more space for centering
+                alignItems: 'top', // This ensures all components are vertically centered
+                paddingTop: 0, // Adjust padding to make sure alignment is centered
+                backgroundColor: '#0D9488',
+                paddingBottom: 0,
+            }}
+            leftComponent={
+                <Icon
+                    name='menu'
+                    color='#fff'
+                    size={30} // Increase the icon size
+                    onPress={() => alert('Menu!')}
+                />
+            }
+            centerComponent={{
+                text: 'RecipeAid',
+                style: { color: '#fff', fontSize: 22 } // Increase the font size
+            }}
+            rightComponent={
+                <Icon
+                    name='account-circle'
+                    color='#fff'
+                    size={30} // Increase the icon size
+                    onPress={() => alert('Account!')}
+                />
+            }
         />
-      </Tab.Navigator>
-  );
-};
+    );
+}
 
 export default NavBar;
