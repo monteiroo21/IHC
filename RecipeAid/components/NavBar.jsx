@@ -1,6 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
+import { icons } from '../constants/icons';
 
 const NavBar = () => {
     return (
@@ -16,19 +17,21 @@ const NavBar = () => {
                 <Icon
                     name='menu'
                     color='#fff'
-                    size={30} // Increase the icon size
+                    size={35} // Increase the icon size
                     onPress={() => alert('Menu!')}
                 />
             }
-            centerComponent={{
-                text: 'RecipeAid',
-                style: { color: '#84CC16', fontSize: 27 } // Increase the font size
-            }}
+            centerComponent={
+                <View className="justify-center items-center">
+                    <Image source={icons.logotipo} className="w-8 h-8 rounded-full"/>
+                    <Text paddingBottom={35} color={"#84CC16"}>RecipeAid</Text> 
+                </View>
+            }
             rightComponent={
                 <Icon
                     name='account-circle'
                     color='#fff'
-                    size={30} // Increase the icon size
+                    size={35} // Increase the icon size
                     onPress={() => alert('Account!')}
                 />
             }

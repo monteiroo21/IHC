@@ -5,7 +5,7 @@ const Card = ({ title, description, imageUrl }) => {
     return (
         <View style={styles.cardContainer}>
             <Image source={{ uri: imageUrl }} style={styles.cardImage} />
-            <View style={styles.cardContent}>
+            <View style={styles.cardTextOverlay}>
                 <Text style={styles.cardTitle}>{title}</Text>
             </View>
         </View>
@@ -22,27 +22,30 @@ const styles = StyleSheet.create({
         shadowRadius: 8,
         elevation: 5,
         margin: 5,
-        width: '45%', // each card will take roughly 30% of the container width
+        width: '45%',  // Adjust as per your layout requirements
     },
     cardImage: {
         width: '100%',
-        height: 400, // Reduced height
+        height: 400,
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
+        borderBottomLeftRadius: 8,
+        borderBottomRightRadius: 8,
     },
-    cardContent: {
-        padding: 5, // Reduced padding
+    cardTextOverlay: {
+        position: 'absolute',
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.0)',  // Semi-transparent black background
+        width: '100%',
+        padding: 10,
+        borderBottomLeftRadius: 8,
+        borderBottomRightRadius: 8,
     },
     cardTitle: {
-        fontSize: 14, // Reduced font size
+        fontSize: 18,
         fontWeight: 'bold',
-        marginBottom: 2,
-    },
-    cardDescription: {
-        fontSize: 12, // Reduced font size
-        color: '#666',
+        color: 'white',  // White text for better visibility against the dark background
     },
 });
-
 
 export default Card;

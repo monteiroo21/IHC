@@ -11,8 +11,9 @@ const Profile = () => {
             <ScrollView>
                 <View className="justify-center items-center">
                     <Image source={icons.persona} resizeMode='contain' className="w-60 h-60 rounded-full"/>
-                    <Text className="text-4xl">Qualquer nome</Text> 
+                    <Text className="text-4xl">Manuel Augusto</Text> 
                 </View>
+                <View className="h-10"/>
                 <View>
                     <Text className="text-2xl">Posted Recipes</Text>  
                 </View>
