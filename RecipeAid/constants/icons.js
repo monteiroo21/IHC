@@ -7,6 +7,7 @@ import searchBold from '../assets/icons/searchBold.png'
 import postBold from '../assets/icons/postBold.png'
 import profileBold from '../assets/icons/profileBold.png'
 import logotipo from '../assets/icons/logotipo.png'
+import persona from '../assets/icons/persona.png'
 
 export const icons = {
     home,
@@ -17,5 +18,6 @@ export const icons = {
     searchBold,
     postBold,
     profileBold,
-    logotipo
+    logotipo,
+    persona
 }

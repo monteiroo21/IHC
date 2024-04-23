@@ -9,7 +9,7 @@ const NavBar = () => {
                 height: 70, // Increase the height to provide more space for centering
                 alignItems: 'top', // This ensures all components are vertically centered
                 paddingTop: 0, // Adjust padding to make sure alignment is centered
-                backgroundColor: '#0D9488',
+                backgroundColor: '#0F766E',
                 paddingBottom: 0,
             }}
             leftComponent={
@@ -22,7 +22,7 @@ const NavBar = () => {
             }
             centerComponent={{
                 text: 'RecipeAid',
-                style: { color: '#fff', fontSize: 22 } // Increase the font size
+                style: { color: '#84CC16', fontSize: 27 } // Increase the font size
             }}
             rightComponent={
                 <Icon
