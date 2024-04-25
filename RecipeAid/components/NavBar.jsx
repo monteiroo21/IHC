@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Touchable, TouchableOpacity } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
 import { icons } from '../constants/icons';
+import { router } from 'expo-router';
 
 const NavBar = () => {
     return (
@@ -16,24 +17,26 @@ const NavBar = () => {
             leftComponent={
                 <Icon
                     name='menu'
-                    color='#fff'
+                    color='#84CC16'
                     size={35} // Increase the icon size
                     onPress={() => alert('Menu!')}
                 />
             }
             centerComponent={
-                <View className="justify-center items-center">
-                    <Image source={icons.logotipo} className="w-8 h-8 rounded-full"/>
-                    <Text paddingBottom={35} color={"#84CC16"}>RecipeAid</Text> 
+                <View className="justify-center items-center flex-row">
+                    <Image source={icons.logotipo} className="w-8 h-8 rounded-full" />
+                    <Text className="text-lime-500 text-2xl font-bold mx-2" onPress={() => router.push('/home')}>RecipeAid</Text>
                 </View>
             }
             rightComponent={
-                <Icon
-                    name='account-circle'
-                    color='#fff'
-                    size={35} // Increase the icon size
-                    onPress={() => alert('Account!')}
-                />
+                <TouchableOpacity onPress={() => router.push('/profile')}>
+                    <Image
+                        source={icons.persona}
+                        resizeMode='contain'
+                        className="w-9 h-9 mx-0.5 rounded-full"
+                    />
+                </TouchableOpacity>
+
             }
         />
     );
