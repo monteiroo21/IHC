@@ -8,6 +8,7 @@ import postBold from '../assets/icons/postBold.png'
 import profileBold from '../assets/icons/profileBold.png'
 import logotipo from '../assets/icons/logotipo.png'
 import persona from '../assets/icons/persona.png'
+import menu from '../assets/icons/menu.png'
 
 export const icons = {
     home,
@@ -19,5 +20,6 @@ export const icons = {
     postBold,
     profileBold,
     logotipo,
-    persona
+    persona,
+    menu
 }
