@@ -79,14 +79,14 @@ const NavBar = () => {
                 transform: [{ translateX: offsetX }],
                 zIndex: 10
             }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginBottom: 20, paddingBottom: 10 }} className="mt-10 border-b-4 border-lime-500">
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginBottom: 20, paddingBottom: 12 }} className="mt-7 border-b-4 border-lime-500">
                     <CustomButton
                         title=""
                         handlePress={toggleMenu}
-                        containerStyles="border border-2 border-lime-500 rounded-lg w-14 h-14 justify-center items-center"
+                        containerStyles="border border-2 border-lime-500 rounded-lg w-12 h-12 justify-center items-center"
                         textStyles="text-lime-500 text-2xl font-bold justify-center items-center"
                         image={icons.x}
-                        imageStyles="w-7 h-7 color-lime-500 justify-center items-center mb-4"
+                        imageStyles="w-5 h-5 color-lime-500 justify-center items-center mb-3"
                         imageColor="#84CC16"
                     />
                     <Image source={icons.logotipo} style={{ width: 50, height: 50, borderRadius: 16, marginLeft: 10 }} />
