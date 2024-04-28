@@ -61,7 +61,8 @@ const NavBar = () => {
                         left: 300,
                         width: Dimensions.get('window').width - 300,
                         height: '100%',
-                        backgroundColor: 'rgba(0,0,0,0.4)' // Semi-transparente
+                        backgroundColor: 'rgba(0,0,0,0.4)', // Semi-transparente
+                        zIndex: 5
                     }}
                     onPress={toggleMenu}
                 />
@@ -74,8 +75,13 @@ const NavBar = () => {
                 height: '100%',
                 backgroundColor: '#0F766E',
                 padding: 20,
-                transform: [{ translateX: offsetX }]
+                transform: [{ translateX: offsetX }],
+                zIndex: 10
             }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }} className="mt-7">
+                    <Image source={icons.logotipo} style={{ width: 50, height: 50, borderRadius: 16 }} />
+                    <Text style={{ color: '#84CC16', fontSize: 28, fontWeight: 'bold', marginLeft: 8 }} onPress={() => router.push('/home')}>RecipeAid</Text>
+                </View>
                 <Text style={{ margin: 10, fontSize: 18 }}>Home</Text>
                 <Text style={{ margin: 10, fontSize: 18 }}>Profile</Text>
                 <Text style={{ margin: 10, fontSize: 18 }}>Settings</Text>
