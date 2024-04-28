@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableOpacity, Animated, Dimensions } from 'react
 import { Header, Icon } from 'react-native-elements';
 import { icons } from '../constants/icons';
 import { router } from 'expo-router';
+import CustomButton from './CustomButton';
 
 const NavBar = () => {
     const [menuVisible, setMenuVisible] = useState(false);
@@ -78,9 +79,18 @@ const NavBar = () => {
                 transform: [{ translateX: offsetX }],
                 zIndex: 10
             }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }} className="mt-7">
-                    <Image source={icons.logotipo} style={{ width: 50, height: 50, borderRadius: 16 }} />
-                    <Text style={{ color: '#84CC16', fontSize: 28, fontWeight: 'bold', marginLeft: 8 }} onPress={() => router.push('/home')}>RecipeAid</Text>
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }} className="mt-10 mb-10">
+                    <CustomButton
+                        title=""
+                        handlePress={toggleMenu}
+                        containerStyles="border border-2 border-lime-500 rounded-lg w-14 h-14 justify-center items-center"
+                        textStyles="text-lime-500 text-2xl font-bold justify-center items-center"
+                        image={icons.x}
+                        imageStyles="w-7 h-7 color-lime-500 justify-center items-center mb-4"
+                        imageColor="#84CC16"
+                    />
+                    <Image source={icons.logotipo} style={{ width: 50, height: 50, borderRadius: 16, marginLeft: 10 }} />
+                    <Text style={{ color: '#84CC16', fontSize: 28, fontWeight: 'bold', marginLeft: 4 }} onPress={() => router.push('/home')}>RecipeAid</Text>
                 </View>
                 <Text style={{ margin: 10, fontSize: 18 }}>Home</Text>
                 <Text style={{ margin: 10, fontSize: 18 }}>Profile</Text>

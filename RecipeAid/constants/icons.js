@@ -9,6 +9,7 @@ import profileBold from '../assets/icons/profileBold.png'
 import logotipo from '../assets/icons/logotipo.png'
 import persona from '../assets/icons/persona.png'
 import menu from '../assets/icons/menu.png'
+import x from '../assets/icons/x.png'
 
 export const icons = {
     home,
@@ -21,5 +22,6 @@ export const icons = {
     profileBold,
     logotipo,
     persona,
-    menu
+    menu,
+    x
 }
