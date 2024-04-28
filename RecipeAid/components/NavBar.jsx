@@ -90,14 +90,13 @@ const NavBar = () => {
                         imageColor="#84CC16"
                     />
                     <Image source={icons.logotipo} style={{ width: 50, height: 50, borderRadius: 16, marginLeft: 10 }} />
-                    <Text style={{ color: '#84CC16', fontSize: 28, fontWeight: 'bold', marginLeft: 4 }} onPress={() => router.push('/home')}>RecipeAid</Text>
+                    <Text style={{ color: '#84CC16', fontSize: 28, fontWeight: 'bold', marginLeft: 4 }}>RecipeAid</Text>
                 </View>
 
-                <Text style={{ margin: 10, fontSize: 18 }}>Home</Text>
-                <Text style={{ margin: 10, fontSize: 18 }}>Profile</Text>
-                <Text style={{ margin: 10, fontSize: 18 }}>Settings</Text>
-                <Text style={{ margin: 10, fontSize: 18 }}>Settings</Text>
-                <Text style={{ margin: 10, fontSize: 18 }}>Settings</Text>
+                <Text style={{ margin: 10, fontSize: 18 }} className="text-lime-500" onPress={() => router.push('/home')}>Home</Text>
+                <Text style={{ margin: 10, fontSize: 18 }} className="text-lime-500" onPress={() => router.push('/search')}>Search</Text>
+                <Text style={{ margin: 10, fontSize: 18 }} className="text-lime-500" onPress={() => router.push('/addPosts')}>Add Post</Text>
+                <Text style={{ margin: 10, fontSize: 18 }} className="text-lime-500" onPress={() => router.push('/profile')}>Profile</Text>
             </Animated.View >
         </>
     );
