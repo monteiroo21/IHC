@@ -79,7 +79,7 @@ const NavBar = () => {
                 transform: [{ translateX: offsetX }],
                 zIndex: 10
             }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }} className="mt-10 mb-10">
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginBottom: 20, paddingBottom: 10 }} className="mt-10 border-b-4 border-lime-500">
                     <CustomButton
                         title=""
                         handlePress={toggleMenu}
@@ -92,12 +92,13 @@ const NavBar = () => {
                     <Image source={icons.logotipo} style={{ width: 50, height: 50, borderRadius: 16, marginLeft: 10 }} />
                     <Text style={{ color: '#84CC16', fontSize: 28, fontWeight: 'bold', marginLeft: 4 }} onPress={() => router.push('/home')}>RecipeAid</Text>
                 </View>
+
                 <Text style={{ margin: 10, fontSize: 18 }}>Home</Text>
                 <Text style={{ margin: 10, fontSize: 18 }}>Profile</Text>
                 <Text style={{ margin: 10, fontSize: 18 }}>Settings</Text>
                 <Text style={{ margin: 10, fontSize: 18 }}>Settings</Text>
                 <Text style={{ margin: 10, fontSize: 18 }}>Settings</Text>
-            </Animated.View>
+            </Animated.View >
         </>
     );
 }
