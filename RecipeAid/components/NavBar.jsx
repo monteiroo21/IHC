@@ -45,7 +45,7 @@ const NavBar = () => {
                 }
                 centerComponent={
                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                        <Image source={icons.logotipo} style={{ width: 32, height: 32, borderRadius: 16 }} />
+                        <Image source={icons.logotipo} style={{ width: 40, height: 40 }} />
                         <Text style={{ color: '#84CC16', fontSize: 20, fontWeight: 'bold', marginLeft: 8 }} onPress={() => router.push('/home')}>RecipeAid</Text>
                     </View>
                 }
@@ -98,10 +98,26 @@ const NavBar = () => {
                     <Text style={{ color: '#84CC16', fontSize: 28, fontWeight: 'bold', marginLeft: 4 }}>RecipeAid</Text>
                 </View>
 
-                <Text style={{ margin: 15, borderBottomWidth: 3, borderColor: '#84CC16' }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/home')}>Home</Text>
-                <Text style={{ margin: 15, borderBottomWidth: 3, borderColor: '#84CC16' }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/search')}>Search</Text>
-                <Text style={{ margin: 15, borderBottomWidth: 3, borderColor: '#84CC16' }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/addPosts')}>Add Post</Text>
-                <Text style={{ margin: 15, borderBottomWidth: 3, borderColor: '#84CC16' }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/profile')}>Profile</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, borderBottomWidth: 3, borderColor: '#84CC16' }} onPress={() => handleMenuItemClick('/home')}>
+                    <Image source={icons.homeBold} style={{ width: 24, height: 24, marginRight: 8, tintColor: '#84CC16', marginRight: 6, marginLeft: 15 }} />
+                    <Text style={{ margin: 15 }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/home')}>Home</Text>
+                </View>
+
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, borderBottomWidth: 3, borderColor: '#84CC16' }}>
+                    <Image source={icons.searchBold} style={{ width: 24, height: 24, marginRight: 8, tintColor: '#84CC16', marginRight: 6, marginLeft: 15 }} onPress={() => handleMenuItemClick('/search')} />
+                    <Text style={{ margin: 15 }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/search')}>Search</Text>
+                </View>
+
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, borderBottomWidth: 3, borderColor: '#84CC16' }}>
+                    <Image source={icons.postBold} style={{ width: 24, height: 24, marginRight: 8, tintColor: '#84CC16', marginRight: 6, marginLeft: 15 }} onPress={() => handleMenuItemClick('/addPosts')} />
+                    <Text style={{ margin: 15 }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/addPosts')}>Add Post</Text>
+                </View>
+
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, borderBottomWidth: 3, borderColor: '#84CC16' }}>
+                    <Image source={icons.profileBold} style={{ width: 24, height: 24, marginRight: 8, tintColor: '#84CC16', marginRight: 6, marginLeft: 15 }} onPress={() => handleMenuItemClick('/profile')} />
+                    <Text style={{ margin: 15 }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/profile')}>Profile</Text>
+                </View>
+
             </Animated.View >
         </>
     );
