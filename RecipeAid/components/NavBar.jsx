@@ -18,6 +18,11 @@ const NavBar = () => {
         setMenuVisible(!menuVisible);
     };
 
+    const handleMenuItemClick = (path) => {
+        router.push(path);
+        toggleMenu();
+    }
+
     return (
         <>
             <Header
@@ -93,10 +98,10 @@ const NavBar = () => {
                     <Text style={{ color: '#84CC16', fontSize: 28, fontWeight: 'bold', marginLeft: 4 }}>RecipeAid</Text>
                 </View>
 
-                <Text style={{ margin: 10, fontSize: 18 }} className="text-lime-500" onPress={() => router.push('/home')}>Home</Text>
-                <Text style={{ margin: 10, fontSize: 18 }} className="text-lime-500" onPress={() => router.push('/search')}>Search</Text>
-                <Text style={{ margin: 10, fontSize: 18 }} className="text-lime-500" onPress={() => router.push('/addPosts')}>Add Post</Text>
-                <Text style={{ margin: 10, fontSize: 18 }} className="text-lime-500" onPress={() => router.push('/profile')}>Profile</Text>
+                <Text style={{ margin: 15, borderBottomWidth: 3, borderColor: '#84CC16' }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/home')}>Home</Text>
+                <Text style={{ margin: 15, borderBottomWidth: 3, borderColor: '#84CC16' }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/search')}>Search</Text>
+                <Text style={{ margin: 15, borderBottomWidth: 3, borderColor: '#84CC16' }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/addPosts')}>Add Post</Text>
+                <Text style={{ margin: 15, borderBottomWidth: 3, borderColor: '#84CC16' }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/profile')}>Profile</Text>
             </Animated.View >
         </>
     );
