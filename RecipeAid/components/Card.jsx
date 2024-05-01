@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image } from 'react-native';
 
 const Card = ({ title, user, image }) => {
     return (
@@ -16,18 +16,5 @@ const Card = ({ title, user, image }) => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    textOverlay: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        padding: 10,
-        borderBottomLeftRadius: 10,
-        borderBottomRightRadius: 10,
-    },
-});
 
 export default Card;
