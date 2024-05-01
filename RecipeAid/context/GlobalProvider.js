@@ -58,16 +58,16 @@ const GlobalProvider = ({ children }) => {
         setRecipes([...recipes, newRecipe]);
     }
 
-    const deleteRecipe = (recipeTitle) => {
-        setRecipes(recipes.filter(recipe => recipe.title !== recipeTitle));
-    }
+    const [savedRecipes, setSavedRecipes] = useState([]);
 
-    const favoriteRecipes = recipes.filter(recipe => recipe.rating >= 4.5);
+    const addSavedRecipe = (recipe) => {
+        setSavedRecipes([...savedRecipes, recipe]);
+    }
 
     const myRecipes = recipes.filter(recipe => recipe.user === "Manuel Augusto");
 
     return (
-        <GlobalContext.Provider value={{ recipes, addRecipe, favoriteRecipes, myRecipes }}>
+        <GlobalContext.Provider value={{ recipes, setRecipes, addRecipe, savedRecipes, setSavedRecipes, setSavedRecipes, myRecipes }}>
             {children}
         </GlobalContext.Provider>
     )
