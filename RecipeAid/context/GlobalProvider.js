@@ -1,5 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React, { createContext } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 
 const GlobalContext = createContext();
 export const useGlobalContext = () => useContext(GlobalContext);
@@ -66,8 +65,18 @@ const GlobalProvider = ({ children }) => {
 
     const myRecipes = recipes.filter(recipe => recipe.user === "Manuel Augusto");
 
+    const value = {
+        recipes,
+        setRecipes,
+        addRecipe,
+        savedRecipes,
+        setSavedRecipes,
+        addSavedRecipe,
+        myRecipes
+    };
+
     return (
-        <GlobalContext.Provider value={{ recipes, setRecipes, addRecipe, savedRecipes, setSavedRecipes, setSavedRecipes, myRecipes }}>
+        <GlobalContext.Provider value={value}>
             {children}
         </GlobalContext.Provider>
     )
