@@ -1,22 +1,29 @@
-import { View, Text } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 import React from 'react'
 import { ScrollView } from 'react-native';
 import Card from '../../components/Card';
+import { recipes, myRecipes, savedRecipes } from '../../constants/data';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Home = () => {
+    console.log(recipes);
     return (
-        <ScrollView>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around' }}>
-                <Card
-                    title="Bacalhau à Brás"
-                    imageUrl="https://casacaroba.com/wp-content/uploads/2023/06/bacalhau-a-bras-scaled.jpg"
+        <SafeAreaView className="bg-gray-200 h-full">
+            <ScrollView>
+                <FlatList 
+                    data={recipes}
+                    keyExtractor={(item) => item.title}
+                    renderItem={({ item }) => (
+                        <Card
+                            title={item.title}
+                            user={item.user}
+                            image={item.image}
+                        />
+                    )}
+                    horizontal
                 />
-                <Card
-                    title="Porco Grelhado"
-                    imageUrl="https://www.apir.org.pt/wp-content/uploads/2020/01/lombinho-600x600.jpg"
-                />
-            </View>
-        </ScrollView>
+            </ScrollView>
+        </SafeAreaView>
     )
 }
 

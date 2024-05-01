@@ -10,6 +10,10 @@ import logotipo from '../assets/icons/logotipo.png'
 import persona from '../assets/icons/persona.png'
 import menu from '../assets/icons/menu.png'
 import x from '../assets/icons/x.png'
+import arrozdepato from '../assets/icons/arrozdepato.jpg'
+import bacalhauabras from '../assets/icons/bacalhauabras.jpg'
+import porcogrelhado from '../assets/icons/porcogrelhado.jpg'
+
 
 export const icons = {
     home,
@@ -23,5 +27,8 @@ export const icons = {
     logotipo,
     persona,
     menu,
-    x
+    x,
+    arrozdepato,
+    bacalhauabras,
+    porcogrelhado
 }

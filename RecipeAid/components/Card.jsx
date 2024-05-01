@@ -1,50 +1,32 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-const Card = ({ title, description, imageUrl }) => {
+const Card = ({ title, user, image }) => {
     return (
-        <View style={styles.cardContainer}>
-            <Image source={{ uri: imageUrl }} style={styles.cardImage} />
-            <View style={styles.cardTextOverlay}>
-                <Text style={styles.cardTitle}>{title}</Text>
+        <View className="flex-col items-center px-4 mb-14">
+            <Image source={image} className="w-72 h-56 rounded-xl relative" />
+            <View className="absolute mt-36 left-10">
+                <Text className="text-white text-xl font-bold">
+                    {title}
+                </Text>
+                <Text className="text-white text-lg font-bold">
+                    {user}
+                </Text>
             </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    cardContainer: {
-        backgroundColor: 'white',
-        borderRadius: 8,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 8,
-        elevation: 5,
-        margin: 5,
-        width: '45%',  // Adjust as per your layout requirements
-    },
-    cardImage: {
-        width: '100%',
-        height: 400,
-        borderTopLeftRadius: 8,
-        borderTopRightRadius: 8,
-        borderBottomLeftRadius: 8,
-        borderBottomRightRadius: 8,
-    },
-    cardTextOverlay: {
+    textOverlay: {
         position: 'absolute',
         bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.0)',  // Semi-transparent black background
-        width: '100%',
+        left: 0,
+        right: 0,
+        backgroundColor: 'rgba(0,0,0,0.5)',
         padding: 10,
-        borderBottomLeftRadius: 8,
-        borderBottomRightRadius: 8,
-    },
-    cardTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: 'white',  // White text for better visibility against the dark background
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10,
     },
 });
 
