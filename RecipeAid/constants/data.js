@@ -14,6 +14,7 @@ const recipes = [
             "Parsley"
         ],
         rating: 4.5,
+        category: ["fish", "traditional"]
     },
     {
         user: "Albert Einstein",
@@ -29,6 +30,7 @@ const recipes = [
             "Salt"
         ],
         rating: 4.8,
+        category: ["steak", "grilled"]
     },
     {
         user: "Manuel Augusto",
@@ -45,10 +47,11 @@ const recipes = [
             "Parsley"
         ],
         rating: 4.6,
+        category: ["traditional", "rice"]
     }
 ];
 
-const myRecipes = [];
+const myRecipes = recipes.filter(recipe => recipe.user === "Manuel Augusto");
 
 const savedRecipes = [];
 
