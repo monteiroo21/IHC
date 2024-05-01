@@ -1,6 +1,6 @@
-import React from 'react';
-import GlobalProvider from '../context/GlobalProvider';
-import { Stack } from 'expo-router';
+import React from 'react'
+import GlobalProvider from '../context/GlobalProvider'
+import { SplashScreen, Stack } from 'expo-router'
 
 const AppLayout = () => {
     return (
@@ -11,6 +11,6 @@ const AppLayout = () => {
             </Stack>
         </GlobalProvider>
     );
-};
+}
 
-export default AppLayout;
+export default AppLayout
