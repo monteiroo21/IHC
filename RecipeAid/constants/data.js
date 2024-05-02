@@ -15,7 +15,8 @@ const recipes = [
             "Parsley"
         ],
         rating: 4.5,
-        category: ["fish", "traditional"]
+        category: ["fish", "traditional"],
+        vegan: false
     },
     {
         user: "Albert Einstein",
@@ -31,7 +32,8 @@ const recipes = [
             "Salt"
         ],
         rating: 4.8,
-        category: ["steak", "grilled"]
+        category: ["steak", "grilled"],
+        vegan: false
     },
     {
         user: "Manuel Augusto",
@@ -48,7 +50,42 @@ const recipes = [
             "Parsley"
         ],
         rating: 4.6,
-        category: ["traditional", "rice"]
+        category: ["traditional", "rice"],
+        vegan: false
+    },
+    {
+        user: "Teresa Almeida",
+        title: "Pizza Tradicional Italiana",
+        image: icons.pizzaIcon, // mudar depois
+        description: "Pizza Tradicional Italiana é uma receita italiana feita com tomate, mozzarella, e manjericão.",
+        ingredients: [
+            "Tomate",
+            "Mozzarella",
+            "Pepperoni",
+            "Massa de pizza",
+            "Oregãos",
+            "Chouriço"
+        ],
+        rating: 4.9,
+        category: ["italian", "pizza"],
+        vegan: false
+    },
+    {
+        user: "Maldini",
+        title: "Pizza Vegetariana",
+        image: icons.pizzaIcon, // mudar depois
+        description: "Pizza Vegetariana é uma receita italiana feita com tomate, mozzarella, e vegetais.",
+        ingredients: [
+            "Tomate",
+            "Mozzarella",
+            "Pimentos",
+            "Cogumelos",
+            "Massa de pizza",
+            "Oregãos"
+        ],
+        rating: 4.7,
+        category: ["vegetarian", "italian", "pizza"],
+        vegan: true
     }
 ];
 
