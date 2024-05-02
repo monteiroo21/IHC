@@ -1,10 +1,11 @@
 import { icons } from "./icons";
+import { recipesImages } from "./recipesJS";
 
 const recipes = [
     {
         user: "Manuel Augusto",
         title: "Bacalhau à Brás",
-        image: icons.bacalhauabras,
+        image: recipesImages.bacalhauBras,
         description: "Bacalhau à Brás is a traditional Portuguese dish made with shredded codfish, onions, and potatoes.",
         ingredients: [
             "Codfish",
@@ -19,7 +20,7 @@ const recipes = [
     {
         user: "Albert Einstein",
         title: "Porco Grelhado",
-        image: icons.porcogrelhado,
+        image: recipesImages.porcoGrelhado,
         description: "Porco Grelhado is a traditional Portuguese dish made with grilled pork loin.",
         ingredients: [
             "Pork loin",
@@ -35,7 +36,7 @@ const recipes = [
     {
         user: "Manuel Augusto",
         title: "Arroz de Pato",
-        image: icons.arrozdepato,
+        image: recipesImages.arrozPato,
         description: "Arroz de Pato is a traditional Portuguese dish made with duck, rice, and chouriço.",
         ingredients: [
             "Duck",

@@ -10,9 +10,6 @@ import logotipo from '../assets/icons/logotipo.png'
 import persona from '../assets/icons/persona.png'
 import menu from '../assets/icons/menu.png'
 import x from '../assets/icons/x.png'
-import arrozdepato from '../assets/icons/arrozdepato.jpg'
-import bacalhauabras from '../assets/icons/bacalhauabras.jpg'
-import porcogrelhado from '../assets/icons/porcogrelhado.jpg'
 import pizzaIcon from '../assets/icons/pizzaIcon.png'
 import hamburgerIcon from '../assets/icons/hamburgerIcon.png'
 import dessertIcon from '../assets/icons/dessertIcon.png'
@@ -32,9 +29,6 @@ export const icons = {
     persona,
     menu,
     x,
-    arrozdepato,
-    bacalhauabras,
-    porcogrelhado,
     pizzaIcon,
     hamburgerIcon,
     dessertIcon,
