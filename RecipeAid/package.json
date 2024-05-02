@@ -15,7 +15,7 @@
     "expo-image-picker": "~14.7.1",
     "expo-linear-gradient": "~12.7.2",
     "expo-linking": "~6.2.2",
-    "expo-router": "~3.4.9",
+    "expo-router": "~3.4.10",
     "expo-status-bar": "~1.11.1",
     "nativewind": "^2.0.11",
     "navbar-native": "^1.6.1",

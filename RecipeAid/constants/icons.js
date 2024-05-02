@@ -14,6 +14,9 @@ import arrozdepato from '../assets/icons/arrozdepato.jpg'
 import bacalhauabras from '../assets/icons/bacalhauabras.jpg'
 import porcogrelhado from '../assets/icons/porcogrelhado.jpg'
 import pizzaIcon from '../assets/icons/pizzaIcon.png'
+import hamburgerIcon from '../assets/icons/hamburgerIcon.png'
+import dessertIcon from '../assets/icons/dessertIcon.png'
+import steakIcon from '../assets/icons/steakIcon.png'
 
 
 export const icons = {
@@ -32,5 +35,8 @@ export const icons = {
     arrozdepato,
     bacalhauabras,
     porcogrelhado,
-    pizzaIcon
+    pizzaIcon,
+    hamburgerIcon,
+    dessertIcon,
+    steakIcon
 }

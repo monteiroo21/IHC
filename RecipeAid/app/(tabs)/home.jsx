@@ -31,26 +31,30 @@ const Home = () => {
                     showsHorizontalScrollIndicator={false}
                 />
                 <View className="mt-8">
-                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-3">
+                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-5">
                         Categories
                     </Text>
-                    <View>
-                        <CategoryButton
-                            category="Pizza"
-                            image={icons.pizzaIcon}
-                        />
-                        <CategoryButton
-                            category="Pizza"
-                            image={icons.pizzaIcon}
-                        />
-                        <CategoryButton
-                            category="Pizza"
-                            image={icons.pizzaIcon}
-                        />
-                        <CategoryButton
-                            category="Pizza"
-                            image={icons.pizzaIcon}
-                        />
+                    <View className="justify-center items-center">
+                        <View className="flex-row mb-2">
+                            <CategoryButton
+                                category="Pizza"
+                                image={icons.pizzaIcon}
+                            />
+                            <CategoryButton
+                                category="Hamburger"
+                                image={icons.hamburgerIcon}
+                            />
+                        </View>
+                        <View className="flex-row">
+                            <CategoryButton
+                                category="Dessert"
+                                image={icons.dessertIcon}
+                            />
+                            <CategoryButton
+                                category="Steak"
+                                image={icons.steakIcon}
+                            />
+                        </View>
                     </View>
                 </View>
             </ScrollView>
