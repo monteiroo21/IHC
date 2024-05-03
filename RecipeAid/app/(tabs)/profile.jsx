@@ -19,7 +19,7 @@ const Profile = () => {
                 </View>
                 <View className="h-10"/>
                 <View>
-                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-3">Posted Recipes</Text>  
+                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-3">Recipes</Text>  
                 </View>
                 <FlatList
                     data={manuelRecipes}
@@ -29,6 +29,7 @@ const Profile = () => {
                             title={item.title}
                             user={item.user}
                             image={item.image}
+                            rating={item.rating}
                         />
                     )}
                     horizontal

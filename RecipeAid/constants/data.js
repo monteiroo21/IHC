@@ -14,7 +14,7 @@ const recipes = [
             "Olive oil",
             "Parsley"
         ],
-        rating: 4.5,
+        rating: 4.2,
         category: ["fish", "traditional"],
         vegan: false
     },

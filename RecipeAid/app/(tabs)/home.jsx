@@ -25,6 +25,7 @@ const Home = () => {
                             title={item.title}
                             user={item.user}
                             image={item.image}
+                            rating={item.rating}
                         />
                     )}
                     horizontal
