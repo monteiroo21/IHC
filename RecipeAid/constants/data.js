@@ -19,7 +19,7 @@ const recipes = [
         vegan: false
     },
     {
-        user: "Albert Einstein",
+        user: "Maria Carvalho",
         title: "Porco Grelhado",
         image: recipesImages.porcoGrelhado,
         description: "Porco Grelhado is a traditional Portuguese dish made with grilled pork loin.",
