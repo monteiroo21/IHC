@@ -13,21 +13,21 @@ const Stars = ({ value, max = 5 }) => {
 
     // Add full stars
     for (let i = 0; i < fullStars; i++) {
-        stars.push(<Icon key={`full-${i}`} name="star" size={24} color="gold" />);
+        stars.push(<Icon key={`full-${i}`} name="star" size={18} color="gold" />);
     }
 
     // Add half star
     if (halfStar) {
         stars.push(
             <View key="half-1" style={styles.halfStarContainer}>
-                <Icon name="star-half-o" size={24} color="gold" style={styles.halfStarOverlay} />
+                <Icon name="star-half-o" size={18} color="gold" style={styles.halfStarOverlay} />
             </View>
         );
     }
 
     // Add empty stars
     for (let i = 0; i < emptyStars; i++) {
-        stars.push(<Icon key={`empty-${i}`} name="star-o" size={24} color="gold" />);
+        stars.push(<Icon key={`empty-${i}`} name="star-o" size={18} color="gold" />);
     }
 
     return (
