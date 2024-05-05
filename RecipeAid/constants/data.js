@@ -1,7 +1,7 @@
 import { icons } from "./icons";
 import { recipesImages } from "./recipesJS";
 
-const recipes = [
+let recipes = [
     {
         user: "Manuel Augusto",
         title: "Bacalhau à Brás",
@@ -89,8 +89,8 @@ const recipes = [
     }
 ];
 
-const myRecipes = recipes.filter(recipe => recipe.user === "Manuel Augusto");
+let myRecipes = recipes.filter(recipe => recipe.user === "Manuel Augusto");
 
-const savedRecipes = [];
+let savedRecipes = [];
 
 export { recipes, myRecipes, savedRecipes };

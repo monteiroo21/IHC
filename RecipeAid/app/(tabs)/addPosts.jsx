@@ -10,13 +10,13 @@ import { router } from 'expo-router';
 import CardStandart from '../../components/CardStandart'
 
 const addPosts = () => {
-    const lastMyRecipes = myRecipes.slice(-3);
+    const lastMyRecipes = myRecipes.slice(-2);
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
             <ScrollView>
                 <View>
-                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-3">Posted Recipes</Text>
+                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-3">Last posted recipes</Text>
                 </View>
 
                 <View className="flex items-center">
@@ -33,8 +33,7 @@ const addPosts = () => {
                     </View>
                 </View>
 
-                <View className="h-10" />
-                <View className="justify-center items-center">
+                <View className="justify-center items-center mt-8">
                     <TouchableOpacity onPress={() => router.push('/profile')}>
                         <Image
                             source={icons.add}
