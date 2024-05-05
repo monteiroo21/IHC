@@ -31,11 +31,11 @@ const Home = () => {
                     horizontal
                     showsHorizontalScrollIndicator={false}
                 />
-                <View className="mt-8">
-                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-5">
+                <View className="mt-10">
+                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-3">
                         Categories
                     </Text>
-                    <View className="justify-center items-center">
+                    <View className="justify-center items-center mb-5">
                         <View className="flex-row mb-2">
                             <CategoryButton
                                 category="Pizza"
