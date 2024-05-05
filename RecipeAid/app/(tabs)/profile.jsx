@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, FlatList } from 'react-native'
+import { View, Text, ScrollView, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Image } from 'react-native'
@@ -6,23 +6,57 @@ import { icons } from '../../constants/icons'
 import Card from '../../components/Card'
 import { recipesImages } from '../../constants/recipesJS'
 import { recipes, myRecipes, savedRecipes } from '../../constants/data';
+import ButtonStandart from '../../components/ButtonStandart'
+import { router } from 'expo-router';
 
 const Profile = () => {
-    const manuelRecipes = [recipes[0], recipes[2]];
+    const firstsMyRecipes = myRecipes.slice(0, 3);
+    const firstsSavedRecipes = savedRecipes.slice(0, 3);
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
             <ScrollView>
                 <View className="justify-center items-center">
-                    <Image source={icons.persona} resizeMode='contain' className="w-44 h-44 rounded-full"/>
-                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-3">Manuel Augusto</Text> 
+                    <Image source={icons.persona} resizeMode='contain' className="w-40 h-40 rounded-full" />
+                    <ButtonStandart
+                        title="Edit Profile"
+                        containerStyles="mt-3"
+                        textStyles="text-lime-500 font-bold text-sm"
+                    />
+                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-7 mt-3">Manuel Augusto</Text>
                 </View>
-                <View className="h-10"/>
+
                 <View>
-                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-3">Recipes</Text>  
+                    <TouchableOpacity className="flex-row ml-3">
+                        <Text className="text-2xl text-lime-500 font-extrabold mb-3 ml-4 border-b-2 border-lime-500">
+                            Posted Recipes ...
+                        </Text>
+                    </TouchableOpacity>
                 </View>
                 <FlatList
-                    data={manuelRecipes}
+                    data={firstsMyRecipes}
+                    keyExtractor={(item) => item.title}
+                    renderItem={({ item }) => (
+                        <Card
+                            title={item.title}
+                            user={item.user}
+                            image={item.image}
+                            rating={item.rating}
+                        />
+                    )}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                />
+
+                <View className="mt-10">
+                    <TouchableOpacity className="flex-row ml-3">
+                        <Text className="text-2xl text-lime-500 font-extrabold mb-3 ml-4 border-b-2 border-lime-500">
+                            Saved Recipes ...
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+                <FlatList
+                    data={firstsSavedRecipes}
                     keyExtractor={(item) => item.title}
                     renderItem={({ item }) => (
                         <Card
