@@ -7,6 +7,7 @@ import Card from '../../components/Card'
 import { recipesImages } from '../../constants/recipesJS'
 import { recipes, myRecipes, savedRecipes } from '../../constants/data';
 import { router } from 'expo-router';
+import CardStandart from '../../components/CardStandart'
 
 const addPosts = () => {
     const lastMyRecipes = myRecipes.slice(-3);
@@ -17,20 +18,21 @@ const addPosts = () => {
                 <View>
                     <Text className="text-3xl text-lime-500 font-extrabold text-center mb-3">Posted Recipes</Text>
                 </View>
-                <FlatList
-                    data={lastMyRecipes}
-                    keyExtractor={(item) => item.title}
-                    renderItem={({ item }) => (
-                        <Card
-                            title={item.title}
-                            user={item.user}
-                            image={item.image}
-                            rating={item.rating}
-                        />
-                    )}
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                />
+
+                <View className="flex items-center">
+                    <View className="flex-row justify-between px-4">
+                        {lastMyRecipes.map((item, index) => (
+                            <CardStandart
+                                key={index}
+                                title={item.title}
+                                user={item.user}
+                                image={item.image}
+                                rating={item.rating}
+                            />
+                        ))}
+                    </View>
+                </View>
+
                 <View className="h-10" />
                 <View className="justify-center items-center">
                     <TouchableOpacity onPress={() => router.push('/profile')}>
