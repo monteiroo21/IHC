@@ -1,13 +1,9 @@
-import { View, Text, ScrollView, FlatList, TouchableOpacity, Animated, Dimensions } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
+import { View, Text, ScrollView, Pressable, Modal, Image } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Image } from 'react-native'
 import { icons } from '../../constants/icons'
-import Card from '../../components/Card'
-import { recipesImages } from '../../constants/recipesJS'
-import { recipes, myRecipes, savedRecipes } from '../../constants/data';
-import { router } from 'expo-router';
 import CardStandart from '../../components/CardStandart'
+import { myRecipes } from '../../constants/data';
 
 const addButton = ({ icon, color, name }) => {
     return (
@@ -22,9 +18,32 @@ const addButton = ({ icon, color, name }) => {
 
 const addPosts = () => {
     const myLastRecipes = myRecipes.slice(-2);
+    const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
+            <Modal
+                animationType='fade'
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    setModalVisible(!modalVisible);
+                }}
+            >
+                <View className="flex-1 justify-center items-center bg-black bg-opacity-50">
+                    <View className="w-10/12 bg-white rounded-lg p-5 relative h-5/6">
+                        <Pressable
+                            className="absolute top-3 right-3 p-4 bg-gray-300 rounded-full"
+                            onPress={() => setModalVisible(false)}
+                        >
+                            <Text className="text-xl">X</Text>
+                        </Pressable>
+                        <Text className="text-lg font-bold mb-4">Your Modal Title</Text>
+                        <Text>Here's some content for your modal.</Text>
+                    </View>
+                </View>
+            </Modal>
+
             <ScrollView>
                 <View>
                     <Text className="text-3xl text-lime-500 font-extrabold text-center mb-5 mt-2">Last posted recipes</Text>
@@ -45,17 +64,16 @@ const addPosts = () => {
                 </View>
 
                 <View className="justify-center items-center mt-8">
-                    <TouchableOpacity onPress={() => router.push('/profile')}>
-                        <View>
-                            <View className="flex-row items-center justify-center bg-slate-900 rounded-xl border-2 border-white p-5 mt-4">
-                                {addButton({
-                                    icon: icons.post,
-                                    color: '#fff',
-                                    name: 'Add a new Recipe'
-                                })}
-                            </View>
+                    <Pressable
+                        onPress={() => setModalVisible(true)}>
+                        <View className="flex-row items-center justify-center bg-slate-900 rounded-xl border-2 border-white p-5 mt-4">
+                            {addButton({
+                                icon: icons.post,
+                                color: '#fff',
+                                name: 'Add a new Recipe'
+                            })}
                         </View>
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
             </ScrollView>
         </SafeAreaView>
