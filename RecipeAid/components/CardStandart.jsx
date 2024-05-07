@@ -7,7 +7,7 @@ const CardStandart = ({ title, user, image, rating }) => {
         <View className="flex-col items-center px-4 relative">
             <Image source={image} className="w-36 h-60 rounded-xl" />
             <View style={{ backgroundColor: 'rgba(71, 85, 105, 0.65)' }} className="absolute bottom-0 left-0 right-0 rounded-b-xl bg-slate-500 w-36 ml-4">
-                <Text className="text-white text-sm font-extrabold px-3 py-2 w-36 truncate">
+                <Text className="text-white text-sm font-extrabold px-3 w-36 truncate">
                     {title}
                 </Text>
                 <Text className="text-white text-xs font-bold px-3 truncate">

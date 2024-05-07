@@ -14,7 +14,6 @@ import pizzaIcon from '../assets/icons/pizzaIcon.png'
 import hamburgerIcon from '../assets/icons/hamburgerIcon.png'
 import dessertIcon from '../assets/icons/dessertIcon.png'
 import steakIcon from '../assets/icons/steakIcon.png'
-import add from '../assets/icons/add.png'
 
 
 export const icons = {
@@ -33,6 +32,5 @@ export const icons = {
     pizzaIcon,
     hamburgerIcon,
     dessertIcon,
-    steakIcon,
-    add
+    steakIcon
 }

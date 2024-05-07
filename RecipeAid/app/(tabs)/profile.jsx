@@ -28,8 +28,8 @@ const Profile = () => {
 
                 <View>
                     <TouchableOpacity className="flex-row ml-3">
-                        <Text className="text-2xl text-lime-500 font-extrabold mb-3 ml-4 border-b-2 border-lime-500">
-                            Posted Recipes ...
+                        <Text className="text-2xl text-lime-500 font-extrabold mb-3 ml-4 border-2 rounded-xl border-lime-500 px-2">
+                            Posted Recipes
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -50,8 +50,8 @@ const Profile = () => {
 
                 <View className="mt-10">
                     <TouchableOpacity className="flex-row ml-3">
-                        <Text className="text-2xl text-lime-500 font-extrabold mb-3 ml-4 border-b-2 border-lime-500">
-                            Saved Recipes ...
+                        <Text className="text-2xl text-lime-500 font-extrabold mb-3 ml-4 border-2 rounded-xl border-lime-500 px-2">
+                            Saved Recipes
                         </Text>
                     </TouchableOpacity>
                 </View>

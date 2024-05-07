@@ -9,19 +9,30 @@ import { recipes, myRecipes, savedRecipes } from '../../constants/data';
 import { router } from 'expo-router';
 import CardStandart from '../../components/CardStandart'
 
+const addButton = ({ icon, color, name }) => {
+    return (
+        <View className="items-center justify-center gap-2">
+            <Image source={icon} resizeMode='contain' tintColor={color} className="w-7 h-7" />
+            <Text className="text-lg" style={{ color: color }}>
+                {name}
+            </Text>
+        </View>
+    )
+}
+
 const addPosts = () => {
-    const lastMyRecipes = myRecipes.slice(-2);
+    const myLastRecipes = myRecipes.slice(-2);
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
             <ScrollView>
                 <View>
-                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-3">Last posted recipes</Text>
+                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-5 mt-2">Last posted recipes</Text>
                 </View>
 
                 <View className="flex items-center">
                     <View className="flex-row justify-between px-4">
-                        {lastMyRecipes.map((item, index) => (
+                        {myLastRecipes.map((item, index) => (
                             <CardStandart
                                 key={index}
                                 title={item.title}
@@ -35,11 +46,15 @@ const addPosts = () => {
 
                 <View className="justify-center items-center mt-8">
                     <TouchableOpacity onPress={() => router.push('/profile')}>
-                        <Image
-                            source={icons.add}
-                            resizeMode='contain'
-                            style={{ width: 120, height: 120, borderRadius: 18 }}
-                        />
+                        <View>
+                            <View className="flex-row items-center justify-center bg-slate-900 rounded-xl border-2 border-white p-5 mt-4">
+                                {addButton({
+                                    icon: icons.post,
+                                    color: '#fff',
+                                    name: 'Add a new Recipe'
+                                })}
+                            </View>
+                        </View>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
