@@ -1,14 +1,31 @@
 import React, { useState } from 'react'
-import { View, Text, ScrollView, Pressable, Modal, Image } from 'react-native'
+import { View, Text, ScrollView, Pressable, Modal, Image, TouchableOpacity } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { icons } from '../../constants/icons'
 import CardStandart from '../../components/CardStandart'
-import { myRecipes } from '../../constants/data';
+import { myRecipes, recipes } from '../../constants/data';
+import * as ImagePicker from 'expo-image-picker';
+import { StatusBar } from 'expo-status-bar'
 
-const addButton = ({ icon, color, name }) => {
+const addButton = ({ icon, color, name, buttonStyle }) => {
     return (
         <View className="items-center justify-center gap-2">
-            <Image source={icon} resizeMode='contain' tintColor={color} className="w-7 h-7" />
+            <Image source={icon} resizeMode='contain' tintColor={color} className={`${buttonStyle}`} />
+            <Text className="text-lg" style={{ color: color }}>
+                {name}
+            </Text>
+        </View>
+    )
+}
+
+const addButtonImage = ({ icon, color, name, buttonStyle, imageUri }) => {
+    return (
+        <View className="items-center justify-center gap-2">
+            {imageUri ? (
+                <Image source={{ uri: imageUri }} resizeMode='cover' style={{ width: 100, height: 100 }} />
+            ) : (
+                <Image source={icon} resizeMode='contain' tintColor={color} className={`${buttonStyle}`} />
+            )}
             <Text className="text-lg" style={{ color: color }}>
                 {name}
             </Text>
@@ -19,6 +36,38 @@ const addButton = ({ icon, color, name }) => {
 const addPosts = () => {
     const myLastRecipes = myRecipes.slice(-2);
     const [modalVisible, setModalVisible] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
+    
+    const [formRecipe, setFormRecipe] = useState({
+        user: "Manuel Augusto",
+        title: "",
+        image: "",
+        description: "",
+        ingredients: [],
+        rating: 0,
+        category: [],
+        vegan: false,
+        time: 0,
+        rating: 0,
+    });
+
+
+    const openPicker = async (selectType) => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: selectType === 'image' ? ImagePicker.MediaTypeOptions.Images : ImagePicker.MediaTypeOptions.Videos,
+            aspect: [4, 3],
+            quality: 1,
+        });
+
+        if (!result.canceled) {
+            setSelectedImage(result.assets[0]["uri"]);
+            // console.log(result.assets[0]);
+            // console.log(result.assets[0]["fileName"]);
+            setFormRecipe({ ...formRecipe, image: result.assets[0]["uri"] });
+        }
+    }
+
+    console.log(formRecipe);
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
@@ -30,16 +79,33 @@ const addPosts = () => {
                     setModalVisible(!modalVisible);
                 }}
             >
-                <View className="flex-1 justify-center items-center bg-black bg-opacity-50">
-                    <View className="w-10/12 bg-white rounded-lg p-5 relative h-5/6">
-                        <Pressable
-                            className="absolute top-3 right-3 p-4 bg-gray-300 rounded-full"
+                <StatusBar backgroundColor='#000' />
+                <View className="flex-1 justify-center items-center bg-black bg-opacity-50 mb-1">
+                    <View className="w-11/12 bg-white rounded-lg relative h-full mb-4 mt-5">
+                        <TouchableOpacity
+                            className="absolute top-3 right-3 bg-gray-300 rounded-xl mt-3"
                             onPress={() => setModalVisible(false)}
                         >
-                            <Text className="text-xl">X</Text>
-                        </Pressable>
-                        <Text className="text-lg font-bold mb-4">Your Modal Title</Text>
-                        <Text>Here's some content for your modal.</Text>
+                            <Text className="text-lg px-4 py-2">X</Text>
+                        </TouchableOpacity>
+                        <View className="p-5">
+                            <Text className="text-2xl font-extrabold mt-3">Create a new Recipe</Text>
+                            <View>
+                                <TouchableOpacity onPress={() => openPicker('image')}>
+                                    <View className="flex items-center justify-center mt-7">
+                                        <View key={selectedImage} className="w-64 h-36  border-4 border-gray-400 rounded-lg justify-center items-center">
+                                            {addButtonImage({
+                                                icon: icons.post,
+                                                color: '#000',
+                                                name: 'Add a photo',
+                                                buttonStyle: 'w-16 h-16',
+                                                imageUri: selectedImage
+                                            })}
+                                        </View>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
                     </View>
                 </View>
             </Modal>
@@ -70,7 +136,8 @@ const addPosts = () => {
                             {addButton({
                                 icon: icons.post,
                                 color: '#fff',
-                                name: 'Add a new Recipe'
+                                name: 'Add a new Recipe',
+                                buttonStyle: 'w-7 h-7'
                             })}
                         </View>
                     </Pressable>
