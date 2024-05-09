@@ -37,7 +37,7 @@ const addPosts = () => {
     const myLastRecipes = myRecipes.slice(-2);
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
-    
+
     const [formRecipe, setFormRecipe] = useState({
         user: "Manuel Augusto",
         title: "",
@@ -61,13 +61,9 @@ const addPosts = () => {
 
         if (!result.canceled) {
             setSelectedImage(result.assets[0]["uri"]);
-            // console.log(result.assets[0]);
-            // console.log(result.assets[0]["fileName"]);
             setFormRecipe({ ...formRecipe, image: result.assets[0]["uri"] });
         }
     }
-
-    console.log(formRecipe);
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
@@ -80,19 +76,22 @@ const addPosts = () => {
                 }}
             >
                 <StatusBar backgroundColor='#000' />
-                <View className="flex-1 justify-center items-center bg-black bg-opacity-50 mb-1">
-                    <View className="w-11/12 bg-white rounded-lg relative h-full mb-4 mt-5">
-                        <TouchableOpacity
-                            className="absolute top-3 right-3 bg-gray-300 rounded-xl mt-3"
-                            onPress={() => setModalVisible(false)}
-                        >
-                            <Text className="text-lg px-4 py-2">X</Text>
-                        </TouchableOpacity>
-                        <View className="p-5">
-                            <Text className="text-2xl font-extrabold mt-3">Create a new Recipe</Text>
+                <View className="flex-1 justify-center items-center bg-black mb-1">
+                    <View className="w-full bg-white rounded-lg relative h-full mb-2 mt-5">
+                        <Pressable onPress={() => setModalVisible(false)}>
+                            <View className="flex-row justify-between p-5 mt-3">
+                                <Text className="text-2xl font-extrabold ml-3">Create a new Recipe</Text>
+                                {addButton({
+                                    icon: icons.x,
+                                    color: '#000',
+                                    buttonStyle: 'w-8 h-8'
+                                })}
+                            </View>
+                        </Pressable>
+                        <View className="ml-3 mb-5">
                             <View>
                                 <TouchableOpacity onPress={() => openPicker('image')}>
-                                    <View className="flex items-center justify-center mt-7">
+                                    <View className="flex items-center justify-center">
                                         <View key={selectedImage} className="w-64 h-36  border-4 border-gray-400 rounded-lg justify-center items-center">
                                             {addButtonImage({
                                                 icon: icons.post,
