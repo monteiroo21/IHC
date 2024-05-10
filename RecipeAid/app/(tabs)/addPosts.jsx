@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { View, Text, ScrollView, Pressable, Modal, Image, TouchableOpacity } from 'react-native'
+import { View, Text, ScrollView, Pressable, Modal, Image, TouchableOpacity, TextInput } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { icons } from '../../constants/icons'
 import CardStandart from '../../components/CardStandart'
 import { myRecipes, recipes } from '../../constants/data';
 import * as ImagePicker from 'expo-image-picker';
 import { StatusBar } from 'expo-status-bar'
+import SearchBar from '../../components/SearchBar'
 
 const addButton = ({ icon, color, name, buttonStyle }) => {
     return (
@@ -80,9 +81,9 @@ const addPosts = () => {
                     setModalVisible(!modalVisible);
                 }}
             >
-                <StatusBar backgroundColor='#000' />
+                <StatusBar backgroundColor='#fff' />
                 <View className="flex-1 justify-center items-center bg-black mb-1">
-                    <View className="w-full bg-white rounded-lg relative h-full mb-2 mt-5">
+                    <View className="w-full bg-white rounded-lg relative h-full">
                         <Pressable onPress={() => setModalVisible(false)}>
                             <View className="flex-row justify-between px-5 mt-5">
                                 <Text className="text-2xl font-extrabold ml-2 text-teal-700">Create a new Recipe</Text>
@@ -93,7 +94,7 @@ const addPosts = () => {
                                 })}
                             </View>
                         </Pressable>
-                        <View className="ml-3">
+                        <View>
                             <View>
                                 <TouchableOpacity onPress={() => openPicker('image')}>
                                     <View className="flex items-center justify-center">
@@ -109,8 +110,17 @@ const addPosts = () => {
                                     </View>
                                 </TouchableOpacity>
                             </View>
-                            <View className="mt-2">
-                                
+                            <View className="mt-6 justify-center items-center">
+                                <Text className="text-2xl font-extrabold ml-2 text-teal-700 mb-2">Name of recipe</Text>
+                                <View className='flex flex-row items-center space-x-4 w-80 h-12 px-4 bg-black-100 rounded-2xl border-4 border-gray-400 focus:border-secondary'>
+                                    <TextInput
+                                        className='text-black mt-0.5 flex-1 text-base font-semibold'
+                                        value={formRecipe.title}
+                                        placeholder='Recipe name ...'
+                                        placeholderTextColor="#000"
+                                        onChangeText={(e) => setFormRecipe({ ...formRecipe, title: e })}
+                                    />
+                                </View>
                             </View>
                         </View>
                     </View>
