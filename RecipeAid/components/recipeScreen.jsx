@@ -1,7 +1,10 @@
 import React from 'react';
 import { View, Text, ScrollView, Button, TextInput } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const RecipeScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <ScrollView className='p-4'>
       <View className='mt-4'>
