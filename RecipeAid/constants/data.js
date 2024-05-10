@@ -221,8 +221,16 @@ let recipes = [
     }
 ];
 
+let ingredients = [
+    {
+        title: "Broccoli",
+        category: "vegetable",
+        image: recipesImages.pizzaVegetariana
+    }
+]
+
 let myRecipes = recipes.filter(recipe => recipe.user === "Manuel Augusto");
 
 let savedRecipes = [];
 
-export { recipes, myRecipes, savedRecipes };
+export { recipes, myRecipes, savedRecipes, ingredients };

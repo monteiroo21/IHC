@@ -12,11 +12,10 @@ const SearchBar = ({ placeholder }) => {
     return (
         <View className='p-4'>
             <TextInput
-                style={styles.input}
                 onChangeText={handleSearchChange}
                 value={searchQuery}
                 placeholder={placeholder}
-                placeholderTextColor="#9CA3AF"
+                placeholderTextColor="#FFFFFF"
             />
         </View>
     );
