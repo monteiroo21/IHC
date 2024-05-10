@@ -22,13 +22,18 @@ const addButtonImage = ({ icon, color, name, buttonStyle, imageUri }) => {
     return (
         <View className="items-center justify-center gap-2">
             {imageUri ? (
-                <Image source={{ uri: imageUri }} resizeMode='cover' style={{ width: 100, height: 100 }} />
+                <View className="w-72 h-36 border-4 border-gray-400 rounded-lg">
+                    <Image source={{ uri: imageUri }} resizeMode='cover' className="w-full h-full" />
+                </View>
+
             ) : (
-                <Image source={icon} resizeMode='contain' tintColor={color} className={`${buttonStyle}`} />
+                <View className="justify-center items-center">
+                    <Image source={icon} resizeMode='contain' tintColor={color} className={`${buttonStyle}`} />
+                    <Text className="text-lg" style={{ color: color }}>
+                        {name}
+                    </Text>
+                </View>
             )}
-            <Text className="text-lg" style={{ color: color }}>
-                {name}
-            </Text>
         </View>
     )
 }
@@ -79,8 +84,8 @@ const addPosts = () => {
                 <View className="flex-1 justify-center items-center bg-black mb-1">
                     <View className="w-full bg-white rounded-lg relative h-full mb-2 mt-5">
                         <Pressable onPress={() => setModalVisible(false)}>
-                            <View className="flex-row justify-between p-5 mt-3">
-                                <Text className="text-2xl font-extrabold ml-3">Create a new Recipe</Text>
+                            <View className="flex-row justify-between px-5 mt-5">
+                                <Text className="text-2xl font-extrabold ml-2 text-teal-700">Create a new Recipe</Text>
                                 {addButton({
                                     icon: icons.x,
                                     color: '#000',
@@ -88,11 +93,11 @@ const addPosts = () => {
                                 })}
                             </View>
                         </Pressable>
-                        <View className="ml-3 mb-5">
+                        <View className="ml-3">
                             <View>
                                 <TouchableOpacity onPress={() => openPicker('image')}>
                                     <View className="flex items-center justify-center">
-                                        <View key={selectedImage} className="w-64 h-36  border-4 border-gray-400 rounded-lg justify-center items-center">
+                                        <View key={selectedImage} className="w-72 h-36 border-4 border-gray-400 rounded-lg justify-center items-center">
                                             {addButtonImage({
                                                 icon: icons.post,
                                                 color: '#000',
@@ -103,6 +108,9 @@ const addPosts = () => {
                                         </View>
                                     </View>
                                 </TouchableOpacity>
+                            </View>
+                            <View className="mt-2">
+                                
                             </View>
                         </View>
                     </View>
