@@ -13,8 +13,8 @@ const Home = () => {
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
-            <ScrollView>
-                <Text className="text-3xl text-lime-500 font-extrabold text-center mb-3">
+            <ScrollView style={{ marginTop: -30 }}>
+                <Text className="text-3xl text-lime-500 font-extrabold text-center mb-3 mt-5">
                     Suggestions for you
                 </Text>
                 <FlatList

@@ -7,7 +7,6 @@ import { myRecipes, recipes } from '../../constants/data';
 import * as ImagePicker from 'expo-image-picker';
 import { StatusBar } from 'expo-status-bar';
 import { SelectList } from 'react-native-dropdown-select-list'
-import { icon } from '@fortawesome/fontawesome-svg-core'
 
 
 const addButton = ({ icon, color, name, buttonStyle }) => {
@@ -143,7 +142,7 @@ const addPosts = () => {
                                 </View>
                             </View>
 
-                            <View className="mt-6 flex-row justify-between px-4">
+                            <View className="mt-6 flex-row justify-between px-4 m-2">
                                 <View className="flex flex-col items-center">
                                     <Text className="text-xl font-bold ml-2 text-teal-700 mb-2">Type of meal</Text>
                                     <SelectList
@@ -157,7 +156,7 @@ const addPosts = () => {
                                         searchicon={<Image source={icons.search} resizeMode='contain' className="w-4 h-4" />}
                                         searchPlaceholder=''
                                         inputStyles={{ color: '#333', fontSize: 15, fontWeight: 'bold' }}
-
+                                        arrowicon={<Image source={icons.arrowDown} resizeMode='contain' className="w-4 h-4" />}
                                     />
                                 </View>
 
@@ -174,6 +173,20 @@ const addPosts = () => {
                                         searchicon={<Image source={icons.search} resizeMode='contain' className="w-4 h-4" />}
                                         searchPlaceholder=''
                                         inputStyles={{ color: '#333', fontSize: 15, fontWeight: 'bold' }}
+                                        arrowicon={<Image source={icons.arrowDown} resizeMode='contain' className="w-4 h-4" />}
+                                    />
+                                </View>
+                            </View>
+
+                            <View className="ml-3">
+                                <Text className="text-2xl font-extrabold ml-2 text-teal-700 mb-2">Ingredients</Text>
+                                <View className='flex flex-row items-center space-x-4 w-80 h-12 px-4 bg-black-100 rounded-2xl border-4 border-gray-400 focus:border-secondary'>
+                                    <TextInput
+                                        className='text-black mt-0.5 flex-1 text-base font-semibold'
+                                        value={formRecipe.ingredients}
+                                        placeholder='Recipe name ...'
+                                        placeholderTextColor="#000"
+                                        onChangeText={(e) => setFormRecipe({ ...formRecipe, ingredients: e })}
                                     />
                                 </View>
                             </View>

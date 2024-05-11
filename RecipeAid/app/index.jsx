@@ -17,7 +17,7 @@ export default function App() {
         <SafeAreaView className="bg-gray-200 h-full">
             <ScrollView contentContainerStyle={{ height: '100%' }}>
                 <View className="justify-center items-center flex-1">
-                    <Image source={icons.logotipo} resizeMode='contain' className="w-52 h-52 my-2" />
+                    <Image source={icons.logotipo} resizeMode='contain' className="w-52 h-52" />
                     <Text className="text-6xl font-semibold text-teal-700 justify-center items-center">
                         RecipeAid
                     </Text>

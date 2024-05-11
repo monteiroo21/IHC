@@ -32,6 +32,7 @@ const NavBar = () => {
                     paddingTop: 0,
                     backgroundColor: '#0F766E',
                     paddingBottom: 0,
+                    borderBottomWidth: 0,
                 }}
                 leftComponent={
                     <TouchableOpacity onPress={toggleMenu}>
