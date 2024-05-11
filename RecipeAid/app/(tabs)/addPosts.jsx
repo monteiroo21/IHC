@@ -178,9 +178,9 @@ const addPosts = () => {
                                 </View>
                             </View>
 
-                            <View className="ml-3">
+                            <View className="ml-5 border-b-2 border-gray-400 w-44 mt-4">
                                 <Text className="text-2xl font-extrabold ml-2 text-teal-700 mb-2">Ingredients</Text>
-                                <View className='flex flex-row items-center space-x-4 w-80 h-12 px-4 bg-black-100 rounded-2xl border-4 border-gray-400 focus:border-secondary'>
+                                <View className='flex flex-row items-center space-x-4 px-3 bg-black-100'>
                                     <TextInput
                                         className='text-black mt-0.5 flex-1 text-base font-semibold'
                                         value={formRecipe.ingredients}
@@ -188,6 +188,7 @@ const addPosts = () => {
                                         placeholderTextColor="#000"
                                         onChangeText={(e) => setFormRecipe({ ...formRecipe, ingredients: e })}
                                     />
+                                    <Image source={icons.plus} resizeMode='contain' className="w-5 h-5 right-0" />
                                 </View>
                             </View>
                         </View>
