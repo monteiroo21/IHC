@@ -7,9 +7,10 @@ import Card from '../../components/Card';
 import { ingredients, vegetables, proteins } from '../../constants/data';
 import CardStandart from '../../components/CardStandart';
 import IngredientsCard from '../../components/IngredientsCard';
-import Ingredient from '../../components/Ingredient';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Search = () => {
+function SearchIngredients() {
   const veg = vegetables;
   const pro = proteins;
 
@@ -41,13 +42,37 @@ const Search = () => {
             horizontal
             showsHorizontalScrollIndicator={false}
                 />
-          <Text className="text-white">HEY</Text>
-          {veg.map((ingredient, index) => (
-            <Ingredient key={index} name={ingredient} />
-          ))}
         </ScrollView>
     </SafeAreaView>
-)
+  );
+}
+
+function SearchName() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+function SearchUser() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+const Search = () => {
+  return (
+      <Tab.Navigator className="bg-slate-900">
+        <Tab.Screen name="Search by Ingredients" component={SearchIngredients} />
+        <Tab.Screen name="Search by Name" component={SearchName} />
+        <Tab.Screen name="Search Users" component={SearchUser} />
+      </Tab.Navigator>
+  );
 }
 
 export default Search
