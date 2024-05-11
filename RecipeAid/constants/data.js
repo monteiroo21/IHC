@@ -225,17 +225,17 @@ let ingredients = [
     {
         title: "Broccoli",
         category: "vegetable",
-        image: recipesImages.pizzaVegetariana
+        image: recipesImages.broccoli
     },
     {
         title: "Lettuce",
         category: "vegetable",
-        image: recipesImages.pizzaVegetariana
+        image: recipesImages.lettuce
     },
     {
         title: "Spinach",
         category: "vegetable",
-        image: recipesImages.pizzaVegetariana
+        image: recipesImages.spinach
     },
     {
         title: "Pork",
