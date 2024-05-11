@@ -6,9 +6,11 @@ import IngredientsCard from './IngredientsCard.jsx'
 
 function SearchByName() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
-      </View>
+        <SafeAreaView className="h-full bg-slate-900">
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text className="text-white">Settings!</Text>
+            </View>
+        </SafeAreaView>
     );
 }
 
