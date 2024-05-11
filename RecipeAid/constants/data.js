@@ -240,12 +240,12 @@ let ingredients = [
     {
         title: "Pork",
         category: "protein",
-        image: recipesImages.pizzaVegetariana
+        image: recipesImages.pork
     },
     {
         title: "Tuna",
         category: "protein",
-        image: recipesImages.pizzaVegetariana
+        image: recipesImages.tuna
     }
 ]
 

@@ -7,6 +7,7 @@ import Card from '../../components/Card';
 import { ingredients, vegetables, proteins } from '../../constants/data';
 import CardStandart from '../../components/CardStandart';
 import IngredientsCard from '../../components/IngredientsCard';
+import Ingredient from '../../components/Ingredient';
 
 const Search = () => {
   const veg = vegetables;
@@ -40,6 +41,10 @@ const Search = () => {
             horizontal
             showsHorizontalScrollIndicator={false}
                 />
+          <Text className="text-white">HEY</Text>
+          {veg.map((ingredient, index) => (
+            <Ingredient key={index} name={ingredient} />
+          ))}
         </ScrollView>
     </SafeAreaView>
 )
