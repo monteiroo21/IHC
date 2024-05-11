@@ -226,11 +226,35 @@ let ingredients = [
         title: "Broccoli",
         category: "vegetable",
         image: recipesImages.pizzaVegetariana
+    },
+    {
+        title: "Lettuce",
+        category: "vegetable",
+        image: recipesImages.pizzaVegetariana
+    },
+    {
+        title: "Spinach",
+        category: "vegetable",
+        image: recipesImages.pizzaVegetariana
+    },
+    {
+        title: "Pork",
+        category: "protein",
+        image: recipesImages.pizzaVegetariana
+    },
+    {
+        title: "Tuna",
+        category: "protein",
+        image: recipesImages.pizzaVegetariana
     }
 ]
 
 let myRecipes = recipes.filter(recipe => recipe.user === "Manuel Augusto");
 
+let vegetables = ingredients.filter(ingredient => ingredient.category === "vegetable");
+
+let proteins = ingredients.filter(ingredient => ingredient.category === "protein");
+
 let savedRecipes = [];
 
-export { recipes, myRecipes, savedRecipes, ingredients };
+export { recipes, myRecipes, savedRecipes, ingredients, vegetables, proteins };

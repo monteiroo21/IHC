@@ -4,20 +4,35 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import * as ImagePicker from 'expo-image-picker';
 import { SearchBar } from 'react-native-screens';
 import Card from '../../components/Card';
-import { ingredients } from '../../constants/data';
+import { ingredients, vegetables, proteins } from '../../constants/data';
+import CardStandart from '../../components/CardStandart';
+import IngredientsCard from '../../components/IngredientsCard';
 
 const Search = () => {
-  const ing = ingredients[0];
+  const veg = vegetables;
+  const pro = proteins;
 
   return (
     <SafeAreaView className="h-full bg-slate-900">
         <ScrollView>
-          <Text>HEY</Text>
           <FlatList
-            data={ing}
+            data={veg}
             keyExtractor={(item) => item.title}
             renderItem={({ item }) => (
-                <Card
+                <IngredientsCard
+                    title={item.title}
+                    image={item.image}
+                />
+            )}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+                />
+          <Text className="text-white">PROTEINS</Text>
+          <FlatList
+            data={pro}
+            keyExtractor={(item) => item.title}
+            renderItem={({ item }) => (
+                <IngredientsCard
                     title={item.title}
                     image={item.image}
                 />
