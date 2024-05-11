@@ -6,7 +6,8 @@ import CardStandart from '../../components/CardStandart'
 import { myRecipes, recipes } from '../../constants/data';
 import * as ImagePicker from 'expo-image-picker';
 import { StatusBar } from 'expo-status-bar';
-import { SelectList } from 'react-native-dropdown-select-list'
+import { MultipleSelectList, SelectList } from 'react-native-dropdown-select-list'
+import MultiSelect from 'react-native-multiple-select'
 
 
 const addButton = ({ icon, color, name, buttonStyle }) => {
@@ -44,8 +45,9 @@ const addPosts = () => {
     const myLastRecipes = myRecipes.slice(-2);
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
-    const [selectedTypeOfMeals, setSelectedTypeOfMeals] = useState("");
+    const [selectedTypeOfMeals, setSelectedTypeOfMeals] = useState([]);
     const [selectedTypeOfCuisine, setSelectedTypeOfCuisine] = useState("");
+    const [selectedItems, setSelectedItems] = useState([]);
 
     const typeOfMeals = [
         { key: 'breakfast', value: 'Breakfast' },
@@ -61,7 +63,6 @@ const addPosts = () => {
         { key: 'Japanese', value: 'Japanese' },
     ];
 
-
     const [formRecipe, setFormRecipe] = useState({
         user: "Manuel Augusto",
         title: "",
@@ -75,6 +76,7 @@ const addPosts = () => {
         rating: 0,
     });
 
+    console.log(selectedItems);
 
     const openPicker = async (selectType) => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -89,6 +91,16 @@ const addPosts = () => {
         }
     }
 
+    // console.log(formRecipe);
+
+    const categoryArray = (formRecipe, array) => {
+        let category = [];
+        array.map((item) => {
+            category.push(item.value);
+        });
+        return category;
+    }
+
     return (
         <SafeAreaView className="h-full bg-slate-900">
             <Modal
@@ -100,7 +112,7 @@ const addPosts = () => {
                 }}
             >
                 <StatusBar backgroundColor='#fff' />
-                <View className="flex-1 justify-center items-center bg-black mb-1">
+                <View className="flex-1 justify-center items-center bg-black">
                     <View className="w-full bg-white rounded-lg relative h-full">
                         <Pressable onPress={() => setModalVisible(false)}>
                             <View className="flex-row justify-between px-5 mt-5">
@@ -142,10 +154,10 @@ const addPosts = () => {
                                 </View>
                             </View>
 
-                            <View className="mt-6 flex-row justify-between px-4 m-2">
+                            <View className="flex-row justify-between px-4 ml-2 mr-2 mt-6">
                                 <View className="flex flex-col items-center">
                                     <Text className="text-xl font-bold ml-2 text-teal-700 mb-2">Type of meal</Text>
-                                    <SelectList
+                                    <MultipleSelectList
                                         setSelected={setSelectedTypeOfMeals}
                                         data={typeOfMeals}
                                         placeholder='Select ...'
@@ -157,12 +169,16 @@ const addPosts = () => {
                                         searchPlaceholder=''
                                         inputStyles={{ color: '#333', fontSize: 15, fontWeight: 'bold' }}
                                         arrowicon={<Image source={icons.arrowDown} resizeMode='contain' className="w-4 h-4" />}
+                                        onSelect={() => setSelectedItems(selectedTypeOfMeals)}
+                                        save='key'
+                                        notFoundText='Type not found'
+                                        badgeStyles={{ height: 0, width: 0, border: 0}}
                                     />
                                 </View>
 
                                 <View className="flex flex-col items-center">
                                     <Text className="text-xl font-bold ml-2 text-teal-700 mb-2">Type of cuisine</Text>
-                                    <SelectList
+                                    <MultipleSelectList
                                         setSelected={setSelectedTypeOfCuisine}
                                         data={typeOfCuisine}
                                         placeholder='Select ...'
@@ -174,11 +190,14 @@ const addPosts = () => {
                                         searchPlaceholder=''
                                         inputStyles={{ color: '#333', fontSize: 15, fontWeight: 'bold' }}
                                         arrowicon={<Image source={icons.arrowDown} resizeMode='contain' className="w-4 h-4" />}
+                                        onSelect={() => setFormRecipe({ ...formRecipe, category: selectedTypeOfCuisine })}
+                                        save='key'
+                                        notFoundText='Type not found'
                                     />
                                 </View>
                             </View>
 
-                            <View className="ml-5 border-b-2 border-gray-400 w-44 mt-4">
+                            <View className="ml-5 border-b-2 border-gray-400 w-44 mt-5 flex">
                                 <Text className="text-2xl font-extrabold ml-2 text-teal-700 mb-2">Ingredients</Text>
                                 <View className='flex flex-row items-center space-x-4 px-3 bg-black-100'>
                                     <TextInput
