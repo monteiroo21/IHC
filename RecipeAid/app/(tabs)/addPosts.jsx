@@ -7,6 +7,7 @@ import { myRecipes, recipes } from '../../constants/data';
 import * as ImagePicker from 'expo-image-picker';
 import { StatusBar } from 'expo-status-bar';
 import { MultipleSelectList, SelectList } from 'react-native-dropdown-select-list';
+import ButtonStandart from '../../components/ButtonStandart'
 
 const addButton = ({ icon, color, name, buttonStyle }) => {
     return (
@@ -44,7 +45,24 @@ const addPosts = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const [selectedTypeOfMeals, setSelectedTypeOfMeals] = useState([]);
-    const [selectedItems, setSelectedItems] = useState([]);
+    const [ingredients, setIngredients] = useState([]);
+    const [ingredient1, setIngredient1] = useState("");
+    const [isVegan, setIsVegan] = useState(false);
+
+    const [LastRecipes, setLastRecipes] = useState([...myLastRecipes]);
+
+    const addIngredients = (ingredient) => {
+        if (!ingredient) return;
+        setIngredients([...ingredients, ingredient]);
+        setFormRecipe({ ...formRecipe, ingredients: [...ingredients, ingredient] });
+    }
+
+    const removeIngredients = (index) => {
+        const newIngredients = [...ingredients];
+        newIngredients.splice(index, 1);
+        setIngredients(newIngredients);
+        setFormRecipe({ ...formRecipe, ingredients: newIngredients });
+    }
 
     const typeOfMealsAndCuisine = [
         { key: 'breakfast', value: 'Breakfast' },
@@ -64,11 +82,13 @@ const addPosts = () => {
         image: "",
         description: "",
         ingredients: [],
+        steps: "",
         rating: 0,
         category: [],
-        vegan: false,
         time: 0,
+        vegan: false,
         rating: 0,
+        type: 1,
     });
 
     const openPicker = async (selectType) => {
@@ -84,9 +104,11 @@ const addPosts = () => {
         }
     }
 
-    console.log(formRecipe);
+    // console.log(formRecipe);
+    // console.log(isVegan);
+    // console.log(ingredients);
+    // console.log(recipes);
 
-    // console.log(selectedItems);
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
@@ -168,18 +190,114 @@ const addPosts = () => {
                                     </View>
                                 </View>
 
-                                <View className="ml-5 border-b-2 border-gray-400 w-44 mt-5 flex">
+                                <View className="ml-5 border-b-2 border-gray-400 w-56 mt-5 flex">
                                     <Text className="text-2xl font-extrabold ml-2 text-teal-700 mb-2">Ingredients</Text>
                                     <View className='flex flex-row items-center space-x-4 px-3 bg-black-100'>
                                         <TextInput
                                             className='text-black mt-0.5 flex-1 text-base font-semibold'
                                             value={formRecipe.ingredients}
-                                            placeholder='Recipe name ...'
+                                            placeholder='Add an ingredient ...'
                                             placeholderTextColor="#000"
-                                            onChangeText={(e) => setFormRecipe({ ...formRecipe, ingredients: e })}
+                                            onChangeText={(e) => setIngredient1(e)}
+                                            onSubmitEditing={() => {
+                                                addIngredients(ingredient1);
+                                                // setFormRecipe({ ...formRecipe, ingredients: ingredients })
+                                            }
+                                            }
                                         />
-                                        <Image source={icons.plus} resizeMode='contain' className="w-5 h-5 right-0" />
+                                        <TouchableOpacity onPress={() => {
+                                            addIngredients(ingredient1);
+                                            // setFormRecipe({ ...formRecipe, ingredients: ingredients })
+                                        }}>
+                                            <Image source={icons.plus} resizeMode='contain' className="w-5 h-5 right-0" />
+                                        </TouchableOpacity>
+
                                     </View>
+                                </View>
+                                <View>
+                                    {ingredients.map((ingredient, index) => (
+                                        <View key={index} className="flex-row mt-2 border-2 border-gray-400 h-8 w-28 ml-5 rounded-lg align-middle">
+                                            <Text className="ml-2 mt-1 mr-4">{ingredient}</Text>
+                                            <TouchableOpacity onPress={() => removeIngredients(index)}>
+                                                <Image source={icons.x} resizeMode='contain' className="h-4 w-4 mt-1" />
+                                            </TouchableOpacity>
+                                        </View>
+                                    ))}
+                                </View>
+
+                                <View className="mt-10 justify-center items-center w-5/6 h-28 ml-7">
+                                    <Text className="text-2xl font-extrabold ml-2 text-teal-700 mb-2">Description</Text>
+                                    <TextInput className="border-2 border-gray-400 rounded-lg h-28 w-full p-4" multiline={true} numberOfLines={4} placeholder="Description of the recipe ..."
+                                        onChangeText={(e) => setFormRecipe({ ...formRecipe, description: e })}
+                                    />
+                                </View>
+
+                                <View className="mt-14 justify-center items-center w-5/6 h-60 ml-7">
+                                    <Text className="text-2xl font-extrabold ml-2 text-teal-700 mb-2">Steps</Text>
+                                    <TextInput className="border-2 border-gray-400 rounded-lg h-60 w-full p-4" multiline={true} numberOfLines={4} placeholder="Steps to prepare the recipe ..."
+                                        onChangeText={(e) => setFormRecipe({ ...formRecipe, steps: e })}
+                                    />
+                                </View>
+
+                                <View className="mt-14 ml-5 flex-row">
+                                    <TouchableOpacity onPress={() => { setFormRecipe({ ...formRecipe, vegan: !isVegan }); setIsVegan(!isVegan) }} style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                        <Text className="text-lg font-bold text-teal-700 mb-2 mt-2">Vegan</Text>
+                                        <View style={{ backgroundColor: '#fff', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', marginLeft: 10 }} className="border-2 border-gray-400 rounded-lg ml-2">
+                                            {isVegan ? (
+                                                <Image source={icons.check} style={{ width: 20, height: 20 }} resizeMode='contain' />
+                                            ) : null}
+                                        </View>
+                                    </TouchableOpacity>
+
+                                    {/* Cria me aqui um textinput onde coloco o tempo da receita por favor */}
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 10 }}>
+                                        <Text className="text-lg font-bold ml-2 text-teal-700 mb-2 mt-2">Tempo (min)</Text>
+                                        <TextInput
+                                            style={{ backgroundColor: '#fff', width: 80, height: 40, marginLeft: 10, paddingLeft: 10 }}
+                                            placeholder="Tempo"
+                                            keyboardType="numeric"
+                                            onChangeText={(text) => setFormRecipe({ ...formRecipe, time: parseInt(text) })} // Converta para inteiro antes de definir o estado
+                                            className="border-2 border-gray-400 rounded-lg ml-2"
+                                        />
+                                    </View>
+                                </View>
+
+                                <View className="mt-5 mb-5 justify-center items-center">
+                                    <ButtonStandart
+                                        title="Post Recipe"
+                                        handlePress={() => {
+                                            setFormRecipe({ ...formRecipe, rating: 0 });
+                                            setFormRecipe({ ...formRecipe, user: "Manuel Augusto" });
+                                            setFormRecipe({ ...formRecipe, vegan: isVegan });
+                                            setFormRecipe({ ...formRecipe, ingredients: ingredients });
+                                            console.log(formRecipe);
+                                            recipes.push(formRecipe);
+                                            setLastRecipes([...recipes.filter(recipe => recipe.user === "Manuel Augusto").slice(-2)]);
+                                            // recipes.filter(recipe => recipe.user === "Manuel Augusto");
+                                            console.log(formRecipe.type);
+                                            setModalVisible(false);
+                                            setFormRecipe({
+                                                user: "Manuel Augusto",
+                                                title: "",
+                                                image: "",
+                                                description: "",
+                                                ingredients: [],
+                                                steps: "",
+                                                rating: 0,
+                                                category: [],
+                                                time: 0,
+                                                vegan: false,
+                                                rating: 0,
+                                                type: 1,
+                                            });
+                                            setSelectedImage(null);
+                                            setSelectedTypeOfMeals([]);
+                                            setIngredients([]);
+                                            setIsVegan(false);
+                                        }}
+                                        containerStyles="w-72 h-14 bg-green-800 rounded-xl"
+                                        textStyles="text-white font-bold text-2xl"
+                                    />
                                 </View>
                             </View>
                         </View>
@@ -195,13 +313,14 @@ const addPosts = () => {
 
                 <View className="flex items-center">
                     <View className="flex-row justify-between px-4">
-                        {myLastRecipes.map((item, index) => (
+                        {LastRecipes.map((item, index) => (
                             <CardStandart
                                 key={index}
                                 title={item.title}
                                 user={item.user}
                                 image={item.image}
                                 rating={item.rating}
+                                type={item.type}
                             />
                         ))}
                     </View>
