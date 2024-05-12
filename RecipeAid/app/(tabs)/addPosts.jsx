@@ -104,11 +104,6 @@ const addPosts = () => {
         }
     }
 
-    // console.log(formRecipe);
-    // console.log(isVegan);
-    // console.log(ingredients);
-    // console.log(recipes);
-
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
@@ -270,11 +265,9 @@ const addPosts = () => {
                                             setFormRecipe({ ...formRecipe, user: "Manuel Augusto" });
                                             setFormRecipe({ ...formRecipe, vegan: isVegan });
                                             setFormRecipe({ ...formRecipe, ingredients: ingredients });
-                                            console.log(formRecipe);
                                             recipes.push(formRecipe);
                                             setLastRecipes([...recipes.filter(recipe => recipe.user === "Manuel Augusto").slice(-2)]);
                                             // recipes.filter(recipe => recipe.user === "Manuel Augusto");
-                                            console.log(formRecipe.type);
                                             setModalVisible(false);
                                             setFormRecipe({
                                                 user: "Manuel Augusto",

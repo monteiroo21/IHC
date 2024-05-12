@@ -4,7 +4,6 @@ import Stars from './Stars';
 
 const CardStandart = ({ title, user, image, rating, type = undefined }) => {
     const imagem = () => {
-        console.log(title, type);
         return type === undefined ? <Image source={image} className="w-36 h-60 rounded-xl" /> : <Image source={{ uri: image }} className="w-36 h-60 rounded-xl" />
     };
 

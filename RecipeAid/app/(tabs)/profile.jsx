@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, FlatList, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Image } from 'react-native'
 import { icons } from '../../constants/icons'
