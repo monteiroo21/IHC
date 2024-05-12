@@ -84,9 +84,9 @@ const addPosts = () => {
         }
     }
 
-    // console.log(formRecipe);
+    console.log(formRecipe);
 
-    console.log(selectedItems);
+    // console.log(selectedItems);
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
@@ -157,7 +157,7 @@ const addPosts = () => {
                                             searchPlaceholder='Select ...'
                                             inputStyles={{ color: '#333', fontSize: 15, fontWeight: 'bold' }}
                                             arrowicon={<Image source={icons.arrowDown} resizeMode='contain' className="w-4 h-4" />}
-                                            onSelect={() => setSelectedItems(selectedTypeOfMeals)}
+                                            onSelect={() => setFormRecipe({ ...formRecipe, category: selectedTypeOfMeals })}
                                             save='key'
                                             notFoundText='Type not found'
                                             disabledCheckBoxStyles={{ backgroundColor: '#f9f9f9', borderColor: '#9ca3af', borderWidth: 4 }}
