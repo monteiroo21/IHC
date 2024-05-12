@@ -111,7 +111,7 @@ const NavBar = () => {
 
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, borderBottomWidth: 3, borderColor: '#84CC16' }}>
                     <Image source={icons.postBold} style={{ width: 24, height: 24, marginRight: 8, tintColor: '#84CC16', marginRight: 6, marginLeft: 15 }} onPress={() => handleMenuItemClick('/addPosts')} />
-                    <Text style={{ margin: 15 }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/addPosts')}>Add Post</Text>
+                    <Text style={{ margin: 15 }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/addPosts')}>Add Recipe</Text>
                 </View>
 
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, borderBottomWidth: 3, borderColor: '#84CC16' }}>
