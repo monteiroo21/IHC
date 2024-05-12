@@ -6,9 +6,7 @@ import CardStandart from '../../components/CardStandart'
 import { myRecipes, recipes } from '../../constants/data';
 import * as ImagePicker from 'expo-image-picker';
 import { StatusBar } from 'expo-status-bar';
-import { MultipleSelectList, SelectList } from 'react-native-dropdown-select-list'
-import MultiSelect from 'react-native-multiple-select'
-
+import { MultipleSelectList, SelectList } from 'react-native-dropdown-select-list';
 
 const addButton = ({ icon, color, name, buttonStyle }) => {
     return (
@@ -46,17 +44,14 @@ const addPosts = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const [selectedTypeOfMeals, setSelectedTypeOfMeals] = useState([]);
-    const [selectedTypeOfCuisine, setSelectedTypeOfCuisine] = useState("");
     const [selectedItems, setSelectedItems] = useState([]);
 
-    const typeOfMeals = [
+    const typeOfMealsAndCuisine = [
         { key: 'breakfast', value: 'Breakfast' },
-        { key: 'lunch', value: 'Lunch' },
-        { key: 'dinner', value: 'Dinner' },
+        { key: 'main dish', value: 'Main Dish' },
         { key: 'snack', value: 'Snack' },
-    ];
-
-    const typeOfCuisine = [
+        { key: 'dessert', value: 'Dessert' },
+        { key: 'appetizer', value: 'Appetizer' },
         { key: 'Italian', value: 'Italian' },
         { key: 'Mexican', value: 'Mexican' },
         { key: 'Chinese', value: 'Chinese' },
@@ -76,8 +71,6 @@ const addPosts = () => {
         rating: 0,
     });
 
-    console.log(selectedItems);
-
     const openPicker = async (selectType) => {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: selectType === 'image' ? ImagePicker.MediaTypeOptions.Images : ImagePicker.MediaTypeOptions.Videos,
@@ -93,13 +86,7 @@ const addPosts = () => {
 
     // console.log(formRecipe);
 
-    const categoryArray = (formRecipe, array) => {
-        let category = [];
-        array.map((item) => {
-            category.push(item.value);
-        });
-        return category;
-    }
+    console.log(selectedItems);
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
@@ -112,107 +99,93 @@ const addPosts = () => {
                 }}
             >
                 <StatusBar backgroundColor='#fff' />
-                <View className="flex-1 justify-center items-center bg-black">
-                    <View className="w-full bg-white rounded-lg relative h-full">
-                        <Pressable onPress={() => setModalVisible(false)}>
-                            <View className="flex-row justify-between px-5 mt-5">
-                                <Text className="text-2xl font-extrabold ml-2 text-teal-700">Create a new Recipe</Text>
-                                {addButton({
-                                    icon: icons.x,
-                                    color: '#000',
-                                    buttonStyle: 'w-8 h-8'
-                                })}
-                            </View>
-                        </Pressable>
-                        <View>
+                <ScrollView className="h-full bg-white">
+                    <View className="flex-1 justify-center items-center h-full bg-white">
+                        <View className="w-full relative h-full">
+                            <Pressable onPress={() => setModalVisible(false)}>
+                                <View className="flex-row justify-between px-5 mt-5">
+                                    <Text className="text-2xl font-extrabold ml-2 text-teal-700">Create a new Recipe</Text>
+                                    {addButton({
+                                        icon: icons.x,
+                                        color: '#000',
+                                        buttonStyle: 'w-8 h-8'
+                                    })}
+                                </View>
+                            </Pressable>
                             <View>
-                                <TouchableOpacity onPress={() => openPicker('image')}>
-                                    <View className="flex items-center justify-center">
-                                        <View key={selectedImage} className="w-72 h-36 border-4 border-gray-400 rounded-lg justify-center items-center">
-                                            {addButtonImage({
-                                                icon: icons.post,
-                                                color: '#000',
-                                                name: 'Add a photo',
-                                                buttonStyle: 'w-16 h-16',
-                                                imageUri: selectedImage
-                                            })}
+                                <View>
+                                    <TouchableOpacity onPress={() => openPicker('image')}>
+                                        <View className="flex items-center justify-center">
+                                            <View key={selectedImage} className="w-72 h-36 border-4 border-gray-400 rounded-lg justify-center items-center">
+                                                {addButtonImage({
+                                                    icon: icons.post,
+                                                    color: '#000',
+                                                    name: 'Add a photo',
+                                                    buttonStyle: 'w-16 h-16',
+                                                    imageUri: selectedImage
+                                                })}
+                                            </View>
                                         </View>
+                                    </TouchableOpacity>
+                                </View>
+
+                                <View className="mt-6 justify-center items-center">
+                                    <Text className="text-2xl font-extrabold ml-2 text-teal-700 mb-2">Name of recipe</Text>
+                                    <View className='flex flex-row items-center space-x-4 w-80 h-12 px-4 bg-black-100 rounded-2xl border-4 border-gray-400 focus:border-secondary'>
+                                        <TextInput
+                                            className='text-black mt-0.5 flex-1 text-base font-semibold'
+                                            value={formRecipe.title}
+                                            placeholder='Recipe name ...'
+                                            placeholderTextColor="#000"
+                                            onChangeText={(e) => setFormRecipe({ ...formRecipe, title: e })}
+                                        />
                                     </View>
-                                </TouchableOpacity>
-                            </View>
-
-                            <View className="mt-6 justify-center items-center">
-                                <Text className="text-2xl font-extrabold ml-2 text-teal-700 mb-2">Name of recipe</Text>
-                                <View className='flex flex-row items-center space-x-4 w-80 h-12 px-4 bg-black-100 rounded-2xl border-4 border-gray-400 focus:border-secondary'>
-                                    <TextInput
-                                        className='text-black mt-0.5 flex-1 text-base font-semibold'
-                                        value={formRecipe.title}
-                                        placeholder='Recipe name ...'
-                                        placeholderTextColor="#000"
-                                        onChangeText={(e) => setFormRecipe({ ...formRecipe, title: e })}
-                                    />
-                                </View>
-                            </View>
-
-                            <View className="flex-row justify-between px-4 ml-2 mr-2 mt-6">
-                                <View className="flex flex-col items-center">
-                                    <Text className="text-xl font-bold ml-2 text-teal-700 mb-2">Type of meal</Text>
-                                    <MultipleSelectList
-                                        setSelected={setSelectedTypeOfMeals}
-                                        data={typeOfMeals}
-                                        placeholder='Select ...'
-                                        boxStyles={{ backgroundColor: '#fff', borderRadius: 16, borderColor: '#9ca3af', borderWidth: 4, width: 150, height: 50 }}
-                                        dropdownTextStyles={{ color: '#333', fontSize: 17 }}
-                                        placeholderStyles={{ color: '#888', fontSize: 18, fontWeight: 'extrabold' }}
-                                        dropdownStyles={{ backgroundColor: '#f9f9f9', borderColor: '#9ca3af', borderWidth: 4 }}
-                                        searchicon={<Image source={icons.search} resizeMode='contain' className="w-4 h-4" />}
-                                        searchPlaceholder=''
-                                        inputStyles={{ color: '#333', fontSize: 15, fontWeight: 'bold' }}
-                                        arrowicon={<Image source={icons.arrowDown} resizeMode='contain' className="w-4 h-4" />}
-                                        onSelect={() => setSelectedItems(selectedTypeOfMeals)}
-                                        save='key'
-                                        notFoundText='Type not found'
-                                        badgeStyles={{ height: 0, width: 0, border: 0}}
-                                    />
                                 </View>
 
-                                <View className="flex flex-col items-center">
-                                    <Text className="text-xl font-bold ml-2 text-teal-700 mb-2">Type of cuisine</Text>
-                                    <MultipleSelectList
-                                        setSelected={setSelectedTypeOfCuisine}
-                                        data={typeOfCuisine}
-                                        placeholder='Select ...'
-                                        boxStyles={{ backgroundColor: '#fff', borderRadius: 16, borderColor: '#9ca3af', borderWidth: 4, width: 150, height: 50 }}
-                                        dropdownTextStyles={{ color: '#333', fontSize: 17 }}
-                                        placeholderStyles={{ color: '#888', fontSize: 18, fontWeight: 'extrabold' }}
-                                        dropdownStyles={{ backgroundColor: '#f9f9f9', borderColor: '#9ca3af', borderWidth: 4 }}
-                                        searchicon={<Image source={icons.search} resizeMode='contain' className="w-4 h-4" />}
-                                        searchPlaceholder=''
-                                        inputStyles={{ color: '#333', fontSize: 15, fontWeight: 'bold' }}
-                                        arrowicon={<Image source={icons.arrowDown} resizeMode='contain' className="w-4 h-4" />}
-                                        onSelect={() => setFormRecipe({ ...formRecipe, category: selectedTypeOfCuisine })}
-                                        save='key'
-                                        notFoundText='Type not found'
-                                    />
+                                <View className="flex justify-center items-center px-4 ml-2 mr-2 mt-6">
+                                    <View className="flex items-center">
+                                        <Text className="text-xl font-bold ml-2 text-teal-700 mb-2">Type of meal and cuisine</Text>
+                                        <MultipleSelectList
+                                            setSelected={(e) => setSelectedTypeOfMeals(e)}
+                                            data={typeOfMealsAndCuisine}
+                                            placeholder='Select ...'
+                                            boxStyles={{ backgroundColor: '#fff', borderRadius: 16, borderColor: '#9ca3af', borderWidth: 4, width: 300, height: 50 }}
+                                            dropdownTextStyles={{ color: '#333', fontSize: 17 }}
+                                            placeholderStyles={{ color: '#888', fontSize: 18, fontWeight: 'extrabold' }}
+                                            dropdownStyles={{ backgroundColor: '#f9f9f9', borderColor: '#9ca3af', borderWidth: 4 }}
+                                            searchicon={<Image source={icons.search} resizeMode='contain' className="w-4 h-4 mr-2" />}
+                                            searchPlaceholder='Select ...'
+                                            inputStyles={{ color: '#333', fontSize: 15, fontWeight: 'bold' }}
+                                            arrowicon={<Image source={icons.arrowDown} resizeMode='contain' className="w-4 h-4" />}
+                                            onSelect={() => setSelectedItems(selectedTypeOfMeals)}
+                                            save='key'
+                                            notFoundText='Type not found'
+                                            disabledCheckBoxStyles={{ backgroundColor: '#f9f9f9', borderColor: '#9ca3af', borderWidth: 4 }}
+                                            label='Select ...'
+                                            badgeStyles={{ backgroundColor: '#0f766e' }}
+                                            badgeTextStyles={{ color: '#fff', fontWeight: 'bold' }}
+                                        />
+                                    </View>
                                 </View>
-                            </View>
 
-                            <View className="ml-5 border-b-2 border-gray-400 w-44 mt-5 flex">
-                                <Text className="text-2xl font-extrabold ml-2 text-teal-700 mb-2">Ingredients</Text>
-                                <View className='flex flex-row items-center space-x-4 px-3 bg-black-100'>
-                                    <TextInput
-                                        className='text-black mt-0.5 flex-1 text-base font-semibold'
-                                        value={formRecipe.ingredients}
-                                        placeholder='Recipe name ...'
-                                        placeholderTextColor="#000"
-                                        onChangeText={(e) => setFormRecipe({ ...formRecipe, ingredients: e })}
-                                    />
-                                    <Image source={icons.plus} resizeMode='contain' className="w-5 h-5 right-0" />
+                                <View className="ml-5 border-b-2 border-gray-400 w-44 mt-5 flex">
+                                    <Text className="text-2xl font-extrabold ml-2 text-teal-700 mb-2">Ingredients</Text>
+                                    <View className='flex flex-row items-center space-x-4 px-3 bg-black-100'>
+                                        <TextInput
+                                            className='text-black mt-0.5 flex-1 text-base font-semibold'
+                                            value={formRecipe.ingredients}
+                                            placeholder='Recipe name ...'
+                                            placeholderTextColor="#000"
+                                            onChangeText={(e) => setFormRecipe({ ...formRecipe, ingredients: e })}
+                                        />
+                                        <Image source={icons.plus} resizeMode='contain' className="w-5 h-5 right-0" />
+                                    </View>
                                 </View>
                             </View>
                         </View>
                     </View>
-                </View>
+                </ScrollView>
+
             </Modal>
 
             <ScrollView>
