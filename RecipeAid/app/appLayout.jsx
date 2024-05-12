@@ -3,7 +3,7 @@ import GlobalProvider from '../context/GlobalProvider';
 import { Stack } from 'expo-router';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import RecipeScreen from '../components/recipeScreen';
+import RecipeScreen from '../components/recipeScreen.jsx';
 
 const AppLayout = () => {
     return (

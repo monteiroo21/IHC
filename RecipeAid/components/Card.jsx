@@ -4,6 +4,7 @@ import Stars from './Stars';
 import { StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 import { useNavigation } from '@react-navigation/native';
+import RecipeScreen from './recipeScreen';
 
 const Card = ({ title, user, image, rating }) => {
     const navigation = useNavigation();

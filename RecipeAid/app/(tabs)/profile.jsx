@@ -8,8 +8,9 @@ import { recipesImages } from '../../constants/recipesJS'
 import { recipes, myRecipes, savedRecipes } from '../../constants/data';
 import ButtonStandart from '../../components/ButtonStandart'
 import { router } from 'expo-router';
+import RecipeScreen from '../../components/recipeScreen'
 
-const Profile = () => {
+const Profile = ({ navigation }) => {
     const firstsMyRecipes = myRecipes.slice(0, 3);
     const firstsSavedRecipes = savedRecipes.slice(0, 3);
 
@@ -38,6 +39,7 @@ const Profile = () => {
                     keyExtractor={(item) => item.title}
                     renderItem={({ item }) => (
                         <Card
+                            navigation={navigation}
                             title={item.title}
                             user={item.user}
                             image={item.image}
