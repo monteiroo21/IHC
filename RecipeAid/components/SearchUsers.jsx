@@ -11,18 +11,19 @@ function SearchUsers() {
     return(
     <SafeAreaView className="h-full bg-slate-900">
         <ScrollView>
-          <FlatList
-            data={user}
-            keyExtractor={(item) => item.title}
-            renderItem={({ item }) => (
-                <UsersCard
-                    name={item.name}
-                    image={item.image}
-                />
-            )}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-                />
+            <Text className="text-2xl text-white font-extrabold mb-4 ml-20 px-2">Recommended Chefs</Text>
+            <FlatList
+                data={user}
+                keyExtractor={(item) => item.title}
+                renderItem={({ item }) => (
+                    <UsersCard
+                        name={item.name}
+                        image={item.image}
+                    />
+                )}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+            />
         </ScrollView>
     </SafeAreaView>
   );
