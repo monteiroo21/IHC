@@ -1,7 +1,6 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import SearchIngredients from './SearchIngredients';  // Assume components are separated
 import Vegetables from './Vegetables';  // New component for searching by name
 import Proteins from './Proteins';
 import { View } from 'react-native';
