@@ -4,6 +4,7 @@ import { View, Text, ScrollView, FlatList } from 'react-native'
 import { ingredients, vegetables, proteins, users } from '../constants/data.js'
 import IngredientsCard from './IngredientsCard.jsx'
 import UsersCard from './UsersCard.jsx'
+import SearchBar from './SearchBar.jsx'
 
 function SearchUsers() {
     const user = users;
@@ -24,6 +25,8 @@ function SearchUsers() {
                 horizontal
                 showsHorizontalScrollIndicator={false}
             />
+            <SearchBar className="ml-4 mt-4 px-4" placeholder={"Search User..."}>
+            </SearchBar>
         </ScrollView>
     </SafeAreaView>
   );
