@@ -10,11 +10,11 @@ function SearchIngredients() {
   const pro = proteins;
 
   return (
-    <SafeAreaView className="h-full bg-slate-900">
+    <View className="h-full bg-slate-900">
         <ScrollView>
           <RecipesTabs></RecipesTabs>
         </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 

@@ -3,7 +3,6 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ingredients, vegetables, proteins } from '../constants/data.js'
 import IngredientsCard from './IngredientsCard.jsx'
-import RecipesTabs from './RecipesTabs.jsx'
 
 function Vegetables() {
   const veg = vegetables;

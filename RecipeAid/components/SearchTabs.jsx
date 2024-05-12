@@ -4,12 +4,13 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import SearchIngredients from './SearchIngredients';  // Assume components are separated
 import SearchByName from './SearchByName';  // New component for searching by name
 import SearchUsers from './SearchUsers';  // New component for user search
+import { View } from 'react-native';
 
 const Tab = createMaterialTopTabNavigator();
 
 function SearchTabs() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
       <Tab.Navigator
         initialRouteName="SearchIngredients"
         screenOptions={{
@@ -39,7 +40,7 @@ function SearchTabs() {
           options={{ tabBarLabel: 'Users' }}
         />
       </Tab.Navigator>
-    </SafeAreaView>
+    </View>
   );
 }
 
