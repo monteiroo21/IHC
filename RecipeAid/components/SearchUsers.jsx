@@ -14,6 +14,7 @@ function SearchUsers() {
         <ScrollView>
             <Text className="text-2xl text-white font-extrabold mb-4 ml-20 px-2">Recommended Chefs</Text>
             <FlatList
+                className="mb-8"
                 data={user}
                 keyExtractor={(item) => item.title}
                 renderItem={({ item }) => (
@@ -25,8 +26,9 @@ function SearchUsers() {
                 horizontal
                 showsHorizontalScrollIndicator={false}
             />
-            <SearchBar className="ml-4 mt-4 px-4" placeholder={"Search User..."}>
-            </SearchBar>
+            <View style={{ flex: 1, alignItems: 'center' }}>
+                <SearchBar placeholder={"Search User..."} />
+            </View>
         </ScrollView>
     </SafeAreaView>
   );

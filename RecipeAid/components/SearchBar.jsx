@@ -27,4 +27,4 @@ const SearchBar = ({ placeholder }) => {
     )
 };
 
-export default SearchBar
+export default SearchBar;
