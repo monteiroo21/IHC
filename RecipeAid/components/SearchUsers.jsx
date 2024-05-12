@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { View, Text, ScrollView, FlatList } from 'react-native'
 import { ingredients, vegetables, proteins, users } from '../constants/data.js'
@@ -7,7 +7,16 @@ import UsersCard from './UsersCard.jsx'
 import SearchBar from './SearchBar.jsx'
 
 function SearchUsers() {
+    const [filteredData, setFilteredData] = useState(users);
     const user = users;
+
+    const handleSearch = (query) => {
+        const formattedQuery = query.toLowerCase();
+        const filtered = user.filter(item => {
+            return item.name.toLowerCase().includes(formattedQuery);
+        });
+        setFilteredData(filtered);
+    };
 
     return(
     <SafeAreaView className="h-full bg-slate-900">
@@ -27,7 +36,7 @@ function SearchUsers() {
                 showsHorizontalScrollIndicator={false}
             />
             <View style={{ flex: 1, alignItems: 'center' }}>
-                <SearchBar placeholder={"Search User..."} />
+                <SearchBar placeholder={"Search User..."} onSearchSubmit={handleSearch} />
             </View>
         </ScrollView>
     </SafeAreaView>

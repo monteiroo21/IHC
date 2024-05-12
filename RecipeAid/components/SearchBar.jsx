@@ -2,13 +2,14 @@ import { View, Text, TouchableOpacity, Image, Alert, TextInput } from 'react-nat
 import React, { useState } from 'react'
 import { icons } from '../constants/icons';
 
-const SearchBar = ({ placeholder }) => {
+const SearchBar = ({ placeholder, onSearchSubmit }) => {
     const [searchQuery, setSearchQuery] = useState('');
 
-    // const handleSearchChange = (query) => {
-    //     setSearchQuery(query);
-    //     // Add additional actions like API calls or state updates here
-    // };
+    const handleSearchSubmit = () => {
+        if (searchQuery.trim()) {
+            onSearchSubmit(searchQuery);
+        }
+    };
 
     return (
         <View className='flex flex-row items-center space-x-4 w-5/6 h-16 px-4 bg-black-100 rounded-2xl border-4 border-gray-400 focus:border-secondary'>
@@ -20,7 +21,7 @@ const SearchBar = ({ placeholder }) => {
                 onChangeText={(e) => setSearchQuery(e)}
             />
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleSearchSubmit}>
                 <Image source={icons.searchBold} tintColor={"#fff"} className="w-5 h-5" resizeMode='contain' />
             </TouchableOpacity>
         </View>
