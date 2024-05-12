@@ -2,12 +2,12 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import SearchIngredients from './SearchIngredients';  // Assume components are separated
-import SearchByName from './SearchByName';  // New component for searching by name
-import SearchUsers from './SearchUsers';  // New component for user search
+import Vegetables from './Vegetables';  // New component for searching by name
+import Proteins from './Proteins';
 
 const Tab = createMaterialTopTabNavigator();
 
-function SearchTabs() {
+function RecipesTabs() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Tab.Navigator
@@ -24,23 +24,18 @@ function SearchTabs() {
         }}
       >
         <Tab.Screen
-          name="Select Ingredients"
-          component={SearchIngredients}
-          options={{ tabBarLabel: 'Ingredients' }}
+          name="Vegetables"
+          component={Vegetables}
+          options={{ tabBarLabel: 'Vegetables' }}
         />
         <Tab.Screen
-          name="Search by Name"
-          component={SearchByName}
-          options={{ tabBarLabel: 'By Name' }}
-        />
-        <Tab.Screen
-          name="Users"
-          component={SearchUsers}
-          options={{ tabBarLabel: 'Users' }}
+          name="Proteins"
+          component={Proteins}
+          options={{ tabBarLabel: 'Proteins' }}
         />
       </Tab.Navigator>
     </SafeAreaView>
   );
 }
 
-export default SearchTabs;
+export default RecipesTabs;

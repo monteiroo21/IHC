@@ -16,12 +16,12 @@ const SearchBar = ({ placeholder }) => {
                 className='text-black mt-0.5 flex-1 text-base font-semibold'
                 value={searchQuery}
                 placeholder={placeholder}
-                placeholderTextColor="#000"
+                placeholderTextColor="#fff"
                 onChangeText={(e) => setSearchQuery(e)}
             />
 
             <TouchableOpacity>
-                <Image source={icons.searchBold} className="w-5 h-5" resizeMode='contain' />
+                <Image source={icons.searchBold} tintColor={"#fff"} className="w-5 h-5" resizeMode='contain' />
             </TouchableOpacity>
         </View>
     )

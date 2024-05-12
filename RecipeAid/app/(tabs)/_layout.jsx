@@ -48,7 +48,7 @@ const TabsLayout = () => {
                 <Tabs.Screen name="addPosts" options={{
                     title: 'addPosts',
                     headerShown: false,
-                    tabBarIcon: ({ color, focused }) => <TabIcon icon={icons.post} color={color} name="Add Post" focused={focused} iconBold={icons.postBold} />
+                    tabBarIcon: ({ color, focused }) => <TabIcon icon={icons.post} color={color} name="Add Recipe" focused={focused} iconBold={icons.postBold} />
                 }} />
 
                 <Tabs.Screen name="profile" options={{
