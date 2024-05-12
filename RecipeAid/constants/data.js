@@ -1,5 +1,5 @@
 import { icons } from "./icons";
-import { recipesImages } from "./recipesJS";
+import { recipesImages, usersImages } from "./recipesJS";
 
 let recipes = [
     {
@@ -247,6 +247,21 @@ let ingredients = [
         category: "protein",
         image: recipesImages.tuna
     }
+];
+
+let users = [
+    {
+        name: "Maria Carvalho",
+        image: usersImages.persona1
+    },
+    {
+        name: "Gianlucca",
+        image: usersImages.persona2
+    },
+    {
+        name: "André Gomes",
+        image: usersImages.persona3
+    },
 ]
 
 let myRecipes = recipes.filter(recipe => recipe.user === "Manuel Augusto");
@@ -257,4 +272,4 @@ let proteins = ingredients.filter(ingredient => ingredient.category === "protein
 
 let savedRecipes = [];
 
-export { recipes, myRecipes, savedRecipes, ingredients, vegetables, proteins };
+export { recipes, myRecipes, savedRecipes, ingredients, vegetables, proteins, users };
