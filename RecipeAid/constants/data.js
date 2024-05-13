@@ -4,7 +4,7 @@ import { recipesImages, usersImages } from "./recipesJS";
 
 let recipes = [
     {
-        user: "Maria Carvalho",
+        user: "Manuel Augusto",
         title: "Bacalhau à Brás",
         image: recipesImages.bacalhauBras,
         description: "Bacalhau à Brás is a traditional Portuguese dish made with shredded codfish, onions, and potatoes.",

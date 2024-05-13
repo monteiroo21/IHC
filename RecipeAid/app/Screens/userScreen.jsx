@@ -66,6 +66,7 @@ const UserScreen = () => {
               time={item.time}
               description={item.description}
               type={item.type}
+              cardStyle={{ width: 200, height: 300, marginRight: 10 }}
             />
           )}
           horizontal
