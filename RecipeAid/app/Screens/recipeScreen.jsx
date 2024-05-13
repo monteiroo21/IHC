@@ -41,6 +41,7 @@ const
 
         <View>
           <Text>{description}</Text>
+
         </View>
 
         <View className='mt-4'>
