@@ -4,20 +4,10 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { ingredients, vegetables, proteins } from '../constants/data.js'
 import IngredientsCard from './IngredientsCard.jsx'
 import { icons } from '../constants/icons.js';
+import { useIngredients } from './IngredientsContext.jsx';
 
 function Vegetables() {
-  const [selectedIngredients, setSelectedIngredients] = useState([]);
-
-  const handleSelectIngredient = (ingredient) => {
-    if (selectedIngredients.includes(ingredient)) {
-      // Ingredient exists, remove it
-      setSelectedIngredients(selectedIngredients.filter(item => item !== ingredient));
-    } else {
-      // Ingredient does not exist, add it
-      setSelectedIngredients([...selectedIngredients, ingredient]);
-    }
-  };
-
+  const { selectedIngredients, handleSelectIngredient } = useIngredients();
   const veg = vegetables;
 
   return (

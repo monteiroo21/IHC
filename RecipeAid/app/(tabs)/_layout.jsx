@@ -4,6 +4,7 @@ import { icons } from '../../constants/icons';
 import { Tabs } from 'expo-router';
 import { useFonts } from 'expo-font'
 import NavBar from '../../components/NavBar';
+import { IngredientsProvider } from '../../components/IngredientsContext';
 
 const TabIcon = ({ icon, color, name, focused, iconBold }) => {
     return (
@@ -19,7 +20,7 @@ const TabIcon = ({ icon, color, name, focused, iconBold }) => {
 
 const TabsLayout = () => {
     return (
-        <>
+        <IngredientsProvider>
             <NavBar />
             <StatusBar backgroundColor='#0F766E' />
             <Tabs screenOptions={{
@@ -58,7 +59,7 @@ const TabsLayout = () => {
                 }} />
 
             </Tabs>
-        </>
+        </IngredientsProvider>
 
     )
 }
