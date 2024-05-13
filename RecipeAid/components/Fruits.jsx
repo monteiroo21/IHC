@@ -1,19 +1,19 @@
 import { View, Text, ScrollView, FlatList, TouchableOpacity, Image, Modal, StyleSheet, Pressable, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { ingredients, vegetables, proteins, broccoli } from '../constants/data.js'
+import { ingredients, vegetables, proteins, broccoli, fruits } from '../constants/data.js'
 import IngredientsCard from './IngredientsCard.jsx'
 import { icons } from '../constants/icons.js';
 import { useIngredients } from './IngredientsContext.jsx';
 import CardStandart from './CardStandart.jsx';
 
-function Proteins() {
+function Fruits() {
   const { selectedIngredients, handleSelectIngredient } = useIngredients();
   const [modalVisible, setModalVisible] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
   const [maxTime, setMaxTime] = useState('');  // State to store the maximum time input
   const [search, setSearch] = useState(false);
-  const pro = proteins;
+  const fru = fruits;
   const bro = broccoli;
 
   const [ingredientInput, setIngredientInput] = useState("");
@@ -120,7 +120,7 @@ function Proteins() {
       {!search && (
         <ScrollView>
           <FlatList
-            data={pro}
+            data={fru}
             keyExtractor={(item) => item.title}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={() => handleSelectIngredient(item.title)}>
@@ -143,8 +143,7 @@ function Proteins() {
               </View>
             ))}
 
-
-            <View className='flex-row items-center space-x-4 px-3 bg-black-100 mt-4 ml-1 mr-32'>
+<           View className='flex-row items-center space-x-4 px-3 bg-black-100 mt-4 ml-1 mr-32'>
                 <TextInput
                     className='text-black mt-0.5 flex-1 text-base font-semibold'
                     value={ingredientInput}
@@ -190,4 +189,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Proteins;
+export default Fruits;

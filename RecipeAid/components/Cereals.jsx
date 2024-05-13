@@ -1,19 +1,19 @@
 import { View, Text, ScrollView, FlatList, TouchableOpacity, Image, Modal, StyleSheet, Pressable, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { ingredients, vegetables, proteins, broccoli } from '../constants/data.js'
+import { ingredients, vegetables, proteins, broccoli, cereals } from '../constants/data.js'
 import IngredientsCard from './IngredientsCard.jsx'
 import { icons } from '../constants/icons.js';
 import { useIngredients } from './IngredientsContext.jsx';
 import CardStandart from './CardStandart.jsx';
 
-function Proteins() {
+function Cereals() {
   const { selectedIngredients, handleSelectIngredient } = useIngredients();
   const [modalVisible, setModalVisible] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
   const [maxTime, setMaxTime] = useState('');  // State to store the maximum time input
   const [search, setSearch] = useState(false);
-  const pro = proteins;
+  const cer = cereals;
   const bro = broccoli;
 
   const [ingredientInput, setIngredientInput] = useState("");
@@ -120,7 +120,7 @@ function Proteins() {
       {!search && (
         <ScrollView>
           <FlatList
-            data={pro}
+            data={cer}
             keyExtractor={(item) => item.title}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={() => handleSelectIngredient(item.title)}>
@@ -190,4 +190,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Proteins;
+export default Cereals;

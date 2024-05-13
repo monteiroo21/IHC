@@ -99,7 +99,45 @@ let recipes = [
         category: ["vegetarian", "italian", "pizza"],
         vegan: true,
         time: 30
-    }
+    },
+    {
+        user: "Alicia Gomes",
+        title: "Oatmeal Squares",
+        image: recipesImages.recipe1,
+        description: "Oatmeal Squares with Fruit is a hearty, nutritious breakfast option made with baked oatmeal and topped with fresh fruits and nuts, perfect for a quick morning start or a healthy snack.",
+        ingredients: [
+            "Rolled oats",
+            "Honey",
+            "Apples",
+            "Bananas",
+            "Cinnamon",
+            "Nuts (almonds, walnuts)"
+        ],
+        steps: "Preparing the Ingredients: Start by mixing the rolled oats with honey, a dash of cinnamon, and a bit of water until the mixture is well combined. Preheat the oven to 180°C (350°F). Slicing the Fruits: While the oven heats, slice the apples and bananas into thin rounds. Assembling the Oatmeal Squares: Spread the oat mixture into a baking tray evenly. Press the fruit slices into the top of the oat mixture and sprinkle with chopped nuts. Baking the Squares: Bake in the preheated oven for about 25-30 minutes, or until the edges are golden brown and the fruits have softened. Finishing and Serving: Allow the baked oatmeal to cool slightly before cutting it into squares. Serve warm or at room temperature.",
+        rating: 4.5,
+        category: ["breakfast", "vegetarian", "snack"],
+        vegan: true,
+        time: 30
+    },
+    {
+        user: "Marco Andrade",
+        title: "Broccoli Frittata",
+        image: recipesImages.recipe2,
+        description: "Broccoli and Cheese Frittata is a delightful and easy-to-make dish that combines fresh broccoli with eggs and cheese, baked to perfection to create a light and fluffy meal that's great for any time of day.",
+        ingredients: [
+            "Eggs",
+            "Broccoli",
+            "Cheddar cheese",
+            "Milk",
+            "Salt",
+            "Pepper"
+        ],
+        steps: "Preparing the Ingredients: Start by chopping the broccoli into small florets and grating the cheddar cheese. In a mixing bowl, whisk the eggs with milk, salt, and pepper until well combined. Preheat the oven to 200°C (400°F). Assembling the Frittata: In a non-stick skillet, sauté the broccoli florets until they are just tender. Pour the egg mixture over the broccoli and sprinkle the grated cheese evenly on top. Baking the Frittata: Transfer the skillet to the preheated oven and bake for 15-20 minutes, or until the eggs are set and the top is golden brown. Finishing and Serving: Remove the frittata from the oven, let it cool for a few minutes, then slice and serve while warm.",
+        rating: 4.8,
+        category: ["vegetarian", "breakfast"],
+        vegan: true,
+        time: 45
+    }    
 ];
 
 let ingredients = [
@@ -127,6 +165,36 @@ let ingredients = [
         title: "Tuna",
         category: "protein",
         image: recipesImages.tuna
+    },
+    {
+        title: "Chicken",
+        category: "protein",
+        image: recipesImages.chicken
+    },
+    {
+        title: "Apple",
+        category: "fruit",
+        image: recipesImages.apple
+    },
+    {
+        title: "Pear",
+        category: "fruit",
+        image: recipesImages.pear
+    },
+    {
+        title: "Rice",
+        category: "cereal",
+        image: recipesImages.rice
+    },
+    {
+        title: "Oat",
+        category: "cereal",
+        image: recipesImages.oat
+    },
+    {
+        title: "Quinoa",
+        category: "cereal",
+        image: recipesImages.quinoa
     }
 ];
 
@@ -143,15 +211,27 @@ let users = [
         name: "André Gomes",
         image: usersImages.persona3
     },
+    {
+        name: "Marco Andrade",
+        image: usersImages.persona4
+    },
+    {
+        name: "Alicia Gomes",
+        image: usersImages.persona5
+    }
 ]
 
-let broccoli = [recipes[0], recipes[1]];
+let broccoli = [recipes[5], recipes[6]];
 
 let myRecipes = recipes.filter(recipe => recipe.user === "Manuel Augusto");
 
 let vegetables = ingredients.filter(ingredient => ingredient.category === "vegetable");
 
 let proteins = ingredients.filter(ingredient => ingredient.category === "protein");
+
+let cereals = ingredients.filter(ingredient => ingredient.category === "cereal");
+
+let fruits = ingredients.filter(ingredient => ingredient.category === "fruit");
 
 let savedRecipes = [];
 
@@ -187,4 +267,4 @@ const getRecipes = async () => {
     }
 };
 
-export { recipes, setRecipes, getRecipes, myRecipes, savedRecipes, setSavedRecipes, ingredients, vegetables, proteins, users, broccoli };
+export { recipes, setRecipes, getRecipes, myRecipes, savedRecipes, setSavedRecipes, ingredients, vegetables, proteins, users, broccoli, cereals, fruits };
