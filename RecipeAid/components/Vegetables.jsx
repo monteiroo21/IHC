@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, FlatList, TouchableOpacity, Image, Pressable, Modal, StyleSheet } from 'react-native'
+import { View, Text, ScrollView, FlatList, TouchableOpacity, Image, Pressable, Modal, StyleSheet, TextInput } from 'react-native'
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ingredients, vegetables, proteins } from '../constants/data.js'
@@ -10,6 +10,7 @@ import { router } from 'expo-router';
 function Vegetables() {
   const { selectedIngredients, handleSelectIngredient } = useIngredients();
   const [modalVisible, setModalVisible] = useState(false);
+  const [isVegan, setIsVegan] = useState(false);
   const veg = vegetables;
 
   const handlePress = () => {
@@ -33,21 +34,40 @@ function Vegetables() {
                 alignItems: 'center'}}>
           <View className="rounded-xl" style={{
                   backgroundColor: 'white',
-                  width: 304,
-                  height: 340}}>
+                  width: 210,
+                  height: 280}}>
             <Pressable 
-              className="ml-72"
+              className="ml-48"
               onPress={() => setModalVisible(false)}
             >
               <Image source={icons.x} tintColor={"#000"} className="h-3 w-3 mt-2 "></Image>
             </Pressable>
-              <Text>Vegan</Text>
-              <Text>Time</Text>
+            <View StyleSheet={styles.buttonContainer}>
+              <TouchableOpacity onPress={() => setIsVegan(!isVegan)}>
+                <Text className="text-lg font-bold ml-4 text-teal-700 mb-2 mt-2">Vegan</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setIsVegan(!isVegan)}>
+                <View style={{ backgroundColor: '#fff', width: 32, height: 32, justifyContent: 'center', alignItems: 'center', marginLeft: 14 }} className="border-2 border-gray-400 rounded-lg ml-2">
+                    {isVegan ? (
+                        <Image source={icons.check} style={{ width: 14, height: 14 }} resizeMode='contain' />
+                    ) : null}
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View StyleSheet={styles.buttonContainer}>
+              <Text className="text-lg font-bold ml-4 text-teal-700 mb-2 mt-2">Tempo máximo (min)</Text>
+              <TextInput
+                  style={{ backgroundColor: '#fff', width: 80, height: 40, marginLeft: 14, paddingLeft: 10 }}
+                  placeholder="Tempo"
+                  keyboardType="numeric"
+                  className="border-2 border-gray-400 rounded-lg ml-2"
+              />
               <Pressable onPress={() => setModalVisible(false)}>
-                <View className="flex-row justify-between px-5 mt-5">
+                <View className="flex-row justify-center px-5 mt-14">
                   <Text className="text-2xl font-extrabold ml-2 text-teal-700">Filter</Text>
                 </View>
               </Pressable>
+            </View>
           </View>
         </View>
       </Modal>
