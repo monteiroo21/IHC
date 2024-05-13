@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, FlatList, TouchableOpacity, Image, Pressable, Modal } from 'react-native'
+import { View, Text, ScrollView, FlatList, TouchableOpacity, Image, Pressable, Modal, StyleSheet } from 'react-native'
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ingredients, vegetables, proteins } from '../constants/data.js'
@@ -71,17 +71,32 @@ function Vegetables() {
               </View>
             ))}
 
-            <Pressable
-                onPress={() => setModalVisible(true)}>
-                <View className="rounded-xl border-2 border-white p-5 mt-4">
-                    <Text className="text-md text-white">
-                        Filter
-                    </Text>
-                </View>
-            </Pressable>
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity onPress={() => setModalVisible(true)}>
+                <Text className="text-2xl text-white font-extrabold mt-4 ml-2 border-2 border-white rounded-xl px-2">
+                  Filter
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => setModalVisible(true)}>
+                <Text className="text-2xl text-white font-extrabold mt-4 ml-2 border-2 border-white rounded-xl px-2">
+                  Search
+                </Text>
+              </TouchableOpacity>
+            </View>
         </ScrollView>
     </SafeAreaView>
   );
 }
+
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
+  }
+});
+
 
 export default Vegetables;
