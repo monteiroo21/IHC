@@ -12,7 +12,7 @@ const Card = ({ title, user, image, rating, ingredients, steps, time, descriptio
     const handlePress = async () => {
         try {
             await AsyncStorage.setItem('recipe', JSON.stringify({ title, user, image, rating, ingredients, steps, time, description, type }));
-            router.push('../Screens/recipeScreen', { title, user, image, rating, ingredients, steps, time, description });
+            router.push('../Screens/recipeScreen', { title, user, image, rating, ingredients, steps, time, description, type });
         } catch (error) {
             console.error('Error saving recipe:', error);
         }
