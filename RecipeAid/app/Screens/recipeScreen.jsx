@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ScrollView, Button, TextInput } from 'react-native';
+import { View, Text, ScrollView, Button, TextInput, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const
@@ -33,10 +33,15 @@ const
 
     return (
       <ScrollView className='p-4'>
+        <View>
+          <Image source={image} className='w-full h-96 rounded-xl' />
+        </View>
+
+
         <View className='mt-4'>
           <Text className='text-lg'>{title}</Text>
-          <Text>Made by: Manuel Augusto</Text>
-          <Text>Cooking time: 60 minutes</Text>
+          <Text>Made by: {user}</Text>
+          <Text>Cooking time: {time} minutes</Text>
         </View>
 
         <View>
@@ -46,19 +51,23 @@ const
 
         <View className='mt-4'>
           <Text className='font-semibold'>Ingredients:</Text>
-          {/* List your ingredients here */}
+          {ingredients.map((ingredient, index) => (
+            <View key={index}>
+              <Text>{ingredient}</Text>
+            </View>
+          ))}
         </View>
 
         <View className='mt-4'>
           <Text className='font-semibold'>Steps:</Text>
-          {/* List your steps here */}
+          <Text>{steps}</Text>
         </View>
 
         <View className='flex flex-row justify-between items-center mt-4'>
           <Button title="Save" onPress={() => { }} />
           <Button title="Share" onPress={() => { }} />
           <Button title="Edit" onPress={() => { }} />
-          <Text>Rating: 3/5</Text>
+          <Text>Rating: {rating}</Text>
         </View>
       </ScrollView>
     );
