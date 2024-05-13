@@ -17,6 +17,9 @@ import steakIcon from '../assets/icons/steakIcon.png'
 import arrowDown from '../assets/icons/arrowDown.png'
 import plus from '../assets/icons/plus.png'
 import check from '../assets/icons/check.png'
+import save from '../assets/icons/save.png'
+import saved from '../assets/icons/saved.png'
+import share from '../assets/icons/share.png'
 
 
 export const icons = {
@@ -38,5 +41,8 @@ export const icons = {
     steakIcon,
     arrowDown,
     plus,
-    check
+    check,
+    save,
+    saved,
+    share,
 }

@@ -10,6 +10,7 @@ import { icons } from '../../constants/icons';
 
 const Home = () => {
     const firstThreeRecipes = recipes.slice(0, 3);
+    console.log(savedRecipes);
 
     return (
         <SafeAreaView className="h-full bg-slate-900">

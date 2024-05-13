@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { icons } from "./icons";
 import { recipesImages, usersImages } from "./recipesJS";
 
@@ -152,4 +153,13 @@ let proteins = ingredients.filter(ingredient => ingredient.category === "protein
 
 let savedRecipes = [];
 
-export { recipes, myRecipes, savedRecipes, ingredients, vegetables, proteins, users };
+const setSavedRecipes = async (recipes) => {
+    try {
+        savedRecipes = recipes;
+        await AsyncStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
+    } catch (error) {
+        console.error('Error saving recipes:', error);
+    }
+};
+
+export { recipes, myRecipes, savedRecipes, setSavedRecipes, ingredients, vegetables, proteins, users };
