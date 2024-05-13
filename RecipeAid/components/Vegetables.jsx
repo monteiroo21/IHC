@@ -1,20 +1,28 @@
 import { View, Text, ScrollView, FlatList, TouchableOpacity, Image, Pressable, Modal, StyleSheet, TextInput } from 'react-native'
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { ingredients, vegetables, proteins } from '../constants/data.js'
+import { ingredients, vegetables, proteins, broccoli } from '../constants/data.js'
 import IngredientsCard from './IngredientsCard.jsx'
 import { icons } from '../constants/icons.js';
 import { useIngredients } from './IngredientsContext.jsx';
 import { router } from 'expo-router';
+import CardStandart from './CardStandart.jsx';
 
 function Vegetables() {
   const { selectedIngredients, handleSelectIngredient } = useIngredients();
   const [modalVisible, setModalVisible] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
+  const [maxTime, setMaxTime] = useState('');  // State to store the maximum time input
+  const [search, setSearch] = useState(false);
   const veg = vegetables;
+  const bro = broccoli;
 
   const handlePress = () => {
     router.push('../Screens/recipeScreen');
+  };
+
+  const handleMaxTimeChange = (text) => {
+    setMaxTime(text);  // Update the state with the new input
   };
 
   return (
@@ -61,6 +69,8 @@ function Vegetables() {
                   placeholder="Tempo"
                   keyboardType="numeric"
                   className="border-2 border-gray-400 rounded-lg ml-2"
+                  onChangeText={handleMaxTimeChange}
+                  value={maxTime}
               />
               <Pressable onPress={() => setModalVisible(false)}>
                 <View className="flex-row justify-center px-5 mt-14">
@@ -71,6 +81,34 @@ function Vegetables() {
           </View>
         </View>
       </Modal>
+      {search && (
+        <View className="bg-slate-900">
+            <TouchableOpacity onPress={() => setSearch(false)}>
+              <Image source={icons.backArrow} tintColor={"#fff"} className="w-8 h-8 ml-4"></Image>
+            </TouchableOpacity>
+            <FlatList
+                className="mt-6 mb-72"
+                data={bro}
+                keyExtractor={item => item.id}
+                renderItem={({ item }) => (
+                    <CardStandart
+                        title={item.title}
+                        user={item.user}
+                        image={item.image}
+                        rating={item.rating}
+                        type={item.type}
+                        ingredients={item.ingredients}
+                        steps={item.steps}
+                        time={item.time}
+                        description={item.description}
+                    />
+                )}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+            />
+        </View>
+      )}
+      {!search && (
         <ScrollView>
           <FlatList
             data={veg}
@@ -103,13 +141,18 @@ function Vegetables() {
                 </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={handlePress}>
+              <TouchableOpacity onPress={() => setSearch(true)}>
                 <Text className="text-2xl text-white font-extrabold mt-4 ml-2 border-2 border-white rounded-xl px-2">
                   Search
                 </Text>
               </TouchableOpacity>
             </View>
+            <View>
+              {isVegan && <Text className="text-white ml-4">- Vegan</Text>}
+              {maxTime !== '' && <Text className="text-white ml-4">- Maximum Time: {maxTime} min</Text>}
+            </View>
         </ScrollView>
+        )}
     </SafeAreaView>
   );
 }

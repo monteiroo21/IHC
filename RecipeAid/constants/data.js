@@ -145,6 +145,8 @@ let users = [
     },
 ]
 
+let broccoli = [recipes[0], recipes[1]];
+
 let myRecipes = recipes.filter(recipe => recipe.user === "Manuel Augusto");
 
 let vegetables = ingredients.filter(ingredient => ingredient.category === "vegetable");
@@ -185,4 +187,4 @@ const getRecipes = async () => {
     }
 };
 
-export { recipes, setRecipes, getRecipes, myRecipes, savedRecipes, setSavedRecipes, ingredients, vegetables, proteins, users };
+export { recipes, setRecipes, getRecipes, myRecipes, savedRecipes, setSavedRecipes, ingredients, vegetables, proteins, users, broccoli };
