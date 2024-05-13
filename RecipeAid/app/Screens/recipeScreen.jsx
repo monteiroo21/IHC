@@ -35,7 +35,7 @@ const
       return null;
     }
 
-    const { title, user, image, rating, ingredients, steps, time, description } = recipe;
+    const { title, user, image, rating, ingredients, steps, time, description, type } = recipe;
 
     const handleSave = async () => {
       try {
@@ -56,10 +56,14 @@ const
       }
     };
 
+    const imagem = () => {
+      return type === undefined ? <Image source={image} className="w-72 h-56 rounded-xl relative" /> : <Image source={{ uri: image }} className="w-72 h-56 rounded-xl relative" />
+    };
+
     return (
       <ScrollView className='p-4 bg-slate-900'>
         <View className="justify-center items-center mt-4">
-          <Image source={image} className="w-72 h-56 rounded-xl relative" />
+          {imagem()}
         </View>
         <View className='flex flex-row justify-between items-center mt-4 mb-3 mx-3'>
           <TouchableOpacity onPress={handleSave} className="flex-row justify-between">

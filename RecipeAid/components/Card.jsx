@@ -8,20 +8,24 @@ import RecipeScreen from '../app/Screens/recipeScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { savedRecipes } from '../constants/data';
 
-const Card = ({ title, user, image, rating, ingredients, steps, time, description }) => {
+const Card = ({ title, user, image, rating, ingredients, steps, time, description, type = undefined }) => {
     const handlePress = async () => {
         try {
-            await AsyncStorage.setItem('recipe', JSON.stringify({ title, user, image, rating, ingredients, steps, time, description }));
+            await AsyncStorage.setItem('recipe', JSON.stringify({ title, user, image, rating, ingredients, steps, time, description, type }));
             router.push('../Screens/recipeScreen', { title, user, image, rating, ingredients, steps, time, description });
         } catch (error) {
             console.error('Error saving recipe:', error);
         }
     };
 
+    const imagem = () => {
+        return type === undefined ? <Image source={image} className="w-72 h-56 rounded-xl relative" /> : <Image source={{ uri: image }} className="w-72 h-56 rounded-xl relative" />
+    };
+
     return (
         <TouchableOpacity onPress={handlePress}>
             <View className="flex-col items-center px-4">
-                <Image source={image} className="w-72 h-56 rounded-xl relative" />
+                {imagem()}
                 <View style={{ backgroundColor: 'rgba(71, 85, 105, 0.65)' }} className="absolute mt-36 rounded-b-xl bg-slate-500 top-3">
                     <Text className="text-white left-3 text-xl font-bold w-72">
                         {title}

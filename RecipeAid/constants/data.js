@@ -162,4 +162,27 @@ const setSavedRecipes = async (recipes) => {
     }
 };
 
-export { recipes, myRecipes, savedRecipes, setSavedRecipes, ingredients, vegetables, proteins, users };
+const setRecipes = async (recipes) => {
+    try {
+        recipes = recipes;
+        await AsyncStorage.setItem('recipes', JSON.stringify(recipes));
+    } catch (error) {
+        console.error('Error saving recipes:', error);
+    }
+};
+
+const getRecipes = async () => {
+    try {
+        const recipesJson = await AsyncStorage.getItem('recipes');
+        if (recipesJson !== null) {
+            return JSON.parse(recipesJson);
+        } else {
+            return []; // Retorna um array vazio se não houver receitas armazenadas
+        }
+    } catch (error) {
+        console.error('Erro ao obter as receitas:', error);
+        return []; // Retorna um array vazio em caso de erro
+    }
+};
+
+export { recipes, setRecipes, getRecipes, myRecipes, savedRecipes, setSavedRecipes, ingredients, vegetables, proteins, users };

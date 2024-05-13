@@ -3,7 +3,7 @@ import { View, Text, ScrollView, Pressable, Modal, Image, TouchableOpacity, Text
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { icons } from '../../constants/icons'
 import CardStandart from '../../components/CardStandart'
-import { myRecipes, recipes } from '../../constants/data';
+import { myRecipes, recipes, setRecipes } from '../../constants/data';
 import * as ImagePicker from 'expo-image-picker';
 import { StatusBar } from 'expo-status-bar';
 import { MultipleSelectList, SelectList } from 'react-native-dropdown-select-list';
@@ -104,6 +104,7 @@ const addPosts = () => {
         }
     }
 
+    console.log(recipes);
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
@@ -313,6 +314,10 @@ const addPosts = () => {
                                 user={item.user}
                                 image={item.image}
                                 rating={item.rating}
+                                ingredients={item.ingredients}
+                                steps={item.steps}
+                                time={item.time}
+                                description={item.description}
                                 type={item.type}
                             />
                         ))}

@@ -5,13 +5,13 @@ import { Image } from 'react-native'
 import { icons } from '../../constants/icons'
 import Card from '../../components/Card'
 import { recipesImages } from '../../constants/recipesJS'
-import { recipes, myRecipes, savedRecipes } from '../../constants/data';
+import { recipes, myRecipes, savedRecipes, getRecipes } from '../../constants/data';
 import ButtonStandart from '../../components/ButtonStandart'
 import { router } from 'expo-router';
 import RecipeScreen from '../../components/recipeScreen'
 
 const Profile = ({ navigation }) => {
-    const firstsMyRecipes = myRecipes.slice(0, 3);
+    const firstsMyRecipes = recipes.filter(recipe => recipe.user === "Manuel Augusto").slice(0, 3);
     const firstsSavedRecipes = savedRecipes.slice(0, 3);
 
     return (
@@ -39,11 +39,15 @@ const Profile = ({ navigation }) => {
                     keyExtractor={(item) => item.title}
                     renderItem={({ item }) => (
                         <Card
-                            navigation={navigation}
                             title={item.title}
                             user={item.user}
                             image={item.image}
                             rating={item.rating}
+                            ingredients={item.ingredients}
+                            steps={item.steps}
+                            time={item.time}
+                            description={item.description}
+                            type={item.type}
                         />
                     )}
                     horizontal
