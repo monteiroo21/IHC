@@ -58,6 +58,7 @@ const Profile = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
                 <FlatList
+                    className="mb-8"
                     data={firstsSavedRecipes}
                     keyExtractor={(item) => item.title}
                     renderItem={({ item }) => (
