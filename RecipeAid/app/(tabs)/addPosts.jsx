@@ -314,6 +314,10 @@ const addPosts = () => {
                                 image={item.image}
                                 rating={item.rating}
                                 type={item.type}
+                                ingredients={item.ingredients}
+                                steps={item.steps}
+                                time={item.time}
+                                description={item.description}
                             />
                         ))}
                     </View>
