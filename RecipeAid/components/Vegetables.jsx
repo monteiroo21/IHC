@@ -1,8 +1,9 @@
-import { View, Text, ScrollView, FlatList, TouchableOpacity } from 'react-native'
+import { View, Text, ScrollView, FlatList, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ingredients, vegetables, proteins } from '../constants/data.js'
 import IngredientsCard from './IngredientsCard.jsx'
+import { icons } from '../constants/icons.js';
 
 function Vegetables() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -38,9 +39,12 @@ function Vegetables() {
                 />
             <Text className="text-xl mt-2 ml-4 text-white">List of Ingredients: </Text>
             {selectedIngredients.map((ingredient, index) => (
-              <Text key={index} style={{ fontSize: 16, marginLeft: 16, marginTop: 4, color: 'white' }}>
-                {ingredient}
-              </Text>
+              <View key={index} className="flex-row mt-2 border-2 border-gray-400 h-8 w-28 ml-5 rounded-lg align-middle">
+                <Text className="ml-2 mt-1 mr-4 text-white">{ingredient}</Text>
+                  <TouchableOpacity onPress={() => handleSelectIngredient(ingredient)}>
+                      <Image source={icons.x} tintColor={"#fff"} resizeMode='contain' className="h-3 w-3 mt-2 ml-3" />
+                  </TouchableOpacity>
+              </View>
             ))}
         </ScrollView>
     </SafeAreaView>
