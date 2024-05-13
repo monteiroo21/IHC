@@ -39,7 +39,6 @@ const UserScreen = () => {
   const { name, image } = user;
 
   const recipesOfUser = recipes.filter(recipe => recipe.user === name);
-  console.log(recipesOfUser);
 
   return (
     <SafeAreaView className="h-full bg-slate-900">
