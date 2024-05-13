@@ -5,11 +5,16 @@ import { ingredients, vegetables, proteins } from '../constants/data.js'
 import IngredientsCard from './IngredientsCard.jsx'
 import { icons } from '../constants/icons.js';
 import { useIngredients } from './IngredientsContext.jsx';
+import { router } from 'expo-router';
 
 function Vegetables() {
   const { selectedIngredients, handleSelectIngredient } = useIngredients();
   const [modalVisible, setModalVisible] = useState(false);
   const veg = vegetables;
+
+  const handlePress = () => {
+    router.push('../Screens/recipeScreen');
+  };
 
   return (
     <SafeAreaView className="h-full bg-slate-900">
@@ -78,7 +83,7 @@ function Vegetables() {
                 </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => setModalVisible(true)}>
+              <TouchableOpacity onPress={handlePress}>
                 <Text className="text-2xl text-white font-extrabold mt-4 ml-2 border-2 border-white rounded-xl px-2">
                   Search
                 </Text>
