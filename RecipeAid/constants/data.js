@@ -42,7 +42,7 @@ let recipes = [
         time: 60
     },
     {
-        user: "Manuel Augusto",
+        user: "Maria Carvalho",
         title: "Arroz de Pato",
         image: recipesImages.arrozPato,
         description: "Arroz de Pato is a traditional Portuguese dish made with duck, rice, and chouriço.",
@@ -62,7 +62,7 @@ let recipes = [
         time: 90
     },
     {
-        user: "Teresa Almeida",
+        user: "André Gomes",
         title: "Pizza Tradicional Italiana",
         image: recipesImages.pizzaTradicionalItaliana,
         description: "Pizza Tradicional Italiana é uma receita italiana feita com tomate, mozzarella, e manjericão.",

@@ -3,14 +3,15 @@ import React from 'react';
 import Stars from './Stars';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { router } from 'expo-router';
+import { recipes } from '../constants/data';
 
 const UsersCard = ({ image, name }) => {
     const handlePress = async () => {
         try {
-            await AsyncStorage.setItem('recipe', JSON.stringify({ image, name }));
+            await AsyncStorage.setItem('user', JSON.stringify({ image, name }));
             router.push('../Screens/userScreen', { image, name });
         } catch (error) {
-            console.error('Error saving recipe:', error);
+            console.error('Error saving user:', error);
         }
     };
 
