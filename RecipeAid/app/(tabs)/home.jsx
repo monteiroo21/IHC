@@ -26,6 +26,10 @@ const Home = () => {
                             user={item.user}
                             image={item.image}
                             rating={item.rating}
+                            ingredients={item.ingredients}
+                            steps={item.steps}
+                            time={item.time}
+                            description={item.description}
                         />
                     )}
                     horizontal

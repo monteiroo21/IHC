@@ -4,13 +4,14 @@ import Stars from './Stars';
 import { StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 import { useNavigation } from '@react-navigation/native';
-import RecipeScreen from './recipeScreen';
 
-const Card = ({ title, user, image, rating }) => {
-    const navigation = useNavigation();
-    
+const Card = ({ title, user, image, rating, ingredients, steps, time, description }) => {
+    const handlePress = () => {
+        router.push('../Screens/recipeScreen', { title, user, image, rating, ingredients, steps, time, description });
+    };
+
     return (
-        <TouchableOpacity onPress={() => navigation.navigate('RecipeScreen')}>
+        <TouchableOpacity onPress={handlePress}>
             <View className="flex-col items-center px-4">
                 <Image source={image} className="w-72 h-56 rounded-xl relative" />
                 <View style={{ backgroundColor: 'rgba(71, 85, 105, 0.65)' }} className="absolute mt-36 rounded-b-xl bg-slate-500 top-3">

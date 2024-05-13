@@ -1,13 +1,8 @@
 import React from 'react';
 import { View, Text, ScrollView, Button, TextInput } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
 
 const
   RecipeScreen = () => {
-    const route = useRoute();
-    const { title, user, image, rating, ingredients, steps, time } = route.params;
-    console.log(route.params);
-
     return (
       <ScrollView className='p-4'>
         <View className='mt-4'>
