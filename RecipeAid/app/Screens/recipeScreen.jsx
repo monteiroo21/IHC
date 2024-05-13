@@ -1,14 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, Button, TextInput } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const
   RecipeScreen = () => {
+    // console.log(route);
+    // const { title, user, image, rating, ingredients, steps, time, description } = route.params;
+
+    const [recipe, setRecipe] = useState(null);
+
+    useEffect(() => {
+      // Recupera os dados da receita do AsyncStorage quando o componente é montado
+      const fetchRecipe = async () => {
+        try {
+          const recipeData = await AsyncStorage.getItem('recipe');
+          if (recipeData !== null) {
+            setRecipe(JSON.parse(recipeData));
+          }
+        } catch (error) {
+          console.error('Error fetching recipe:', error);
+        }
+      };
+
+      fetchRecipe();
+    }, []);
+
+    if (!recipe) {
+      return null; // Renderiza nada se não houver receita disponível
+    }
+
+    const { title, user, image, rating, ingredients, steps, time, description } = recipe;
+
     return (
       <ScrollView className='p-4'>
         <View className='mt-4'>
-          <Text className='text-lg'>Bacalhau à Brás</Text>
+          <Text className='text-lg'>{title}</Text>
           <Text>Made by: Manuel Augusto</Text>
           <Text>Cooking time: 60 minutes</Text>
+        </View>
+
+        <View>
+          <Text>{description}</Text>
         </View>
 
         <View className='mt-4'>

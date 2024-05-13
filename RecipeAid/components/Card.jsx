@@ -4,10 +4,22 @@ import Stars from './Stars';
 import { StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 import { useNavigation } from '@react-navigation/native';
+import RecipeScreen from '../app/Screens/recipeScreen';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Card = ({ title, user, image, rating, ingredients, steps, time, description }) => {
-    const handlePress = () => {
-        router.push('../Screens/recipeScreen', { title, user, image, rating, ingredients, steps, time, description });
+    // const navigation = useNavigation();
+
+    // const handlePress = () => {
+    //     navigation.navigate('recipeScreen', { title, user, image, rating, ingredients, steps, time, description });
+    // };
+    const handlePress = async () => {
+        try {
+            await AsyncStorage.setItem('recipe', JSON.stringify({ title, user, image, rating, ingredients, steps, time, description }));
+            router.push('../Screens/recipeScreen', { title, user, image, rating, ingredients, steps, time, description });
+        } catch (error) {
+            console.error('Error saving recipe:', error);
+        }
     };
 
     return (
