@@ -104,7 +104,6 @@ const addPosts = () => {
         }
     }
 
-    console.log(recipes);
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
