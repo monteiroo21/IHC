@@ -24,9 +24,9 @@ let recipes = [
     },
     {
         user: "Maria Carvalho",
-        title: "Porco Grelhado",
+        title: "Grilled Pork",
         image: recipesImages.porcoGrelhado,
-        description: "Porco Grelhado is a traditional Portuguese dish made with grilled pork loin.",
+        description: "Grilled Pork is a traditional Portuguese dish made with grilled pork loin.",
         ingredients: [
             "Pork loin",
             "Garlic",
@@ -63,16 +63,15 @@ let recipes = [
     },
     {
         user: "André Gomes",
-        title: "Pizza Tradicional Italiana",
+        title: "Traditional Italian Pizza",
         image: recipesImages.pizzaTradicionalItaliana,
-        description: "Pizza Tradicional Italiana é uma receita italiana feita com tomate, mozzarella, e manjericão.",
+        description: "Traditional Italian Pizza is a italian recipe made with tomato, mozzarella and oregons.",
         ingredients: [
-            "Tomate",
+            "Tomato",
             "Mozzarella",
             "Pepperoni",
-            "Massa de pizza",
-            "Oregãos",
-            "Chouriço"
+            "Pizza dough",
+            "Oregons"
         ],
         steps: "Preparing the Ingredients: Start by preparing the ingredients for the pizza. Slice the tomatoes into thin rounds and the mozzarella into slices. If using pepperoni, slice it thinly. Chop the chouriço into small pieces. Preheat the oven to 220°C (425°F) and place a pizza stone or a baking sheet in the oven to heat. Assembling the Pizza: Roll out the pizza dough on a floured surface until it reaches the desired size and thickness. Transfer the stretched dough to a baking sheet or onto the preheated pizza stone. Spread a thin layer of tomato sauce over the dough, leaving a border around the edges. Arrange the mozzarella slices over the tomato sauce. Add the tomato rounds and the pepperoni slices (if using). Sprinkle oregano over the pizza to add flavor. Baking the Pizza: Place the assembled pizza in the preheated oven and bake for about 12-15 minutes, or until the crust is golden and crispy and the cheese is melted and bubbly. Finishing and Serving: Remove the pizza from the oven and let it rest for a few minutes. Before serving, sprinkle the chopped chouriço over the pizza for an additional touch of flavor and texture. Slice the pizza and serve hot. Enjoy this delicious and authentic Traditional Italian Pizza!",
 
@@ -83,18 +82,19 @@ let recipes = [
     },
     {
         user: "Gianlucca",
-        title: "Pizza Vegetariana",
+        title: "Vegetarian Pizza",
         image: recipesImages.pizzaVegetariana,
-        description: "Pizza Vegetariana é uma receita italiana feita com tomate, mozzarella, e vegetais.",
+        description: "Vegetarian Pizza is a italian recipe made with tomato, mozzarella and vegetables.",
         ingredients: [
-            "Tomate",
+            "Tomato",
             "Mozzarella",
-            "Pimentos",
-            "Cogumelos",
-            "Massa de pizza",
-            "Oregãos"
+            "Peppers",
+            "Mushrooms",
+            "Pizza dough",
+            "Oregons",
+            "Spinach"
         ],
-        steps: "Preparing the Ingredients: Start by preparing the ingredients for the pizza. Slice the tomatoes into thin rounds and the mozzarella into slices. Cut the bell peppers into thin strips and slice the mushrooms. Preheat the oven to 220°C (425°F) and place a pizza stone or a baking sheet in the oven to heat. Assembling the Pizza: Roll out the pizza dough on a floured surface until it reaches the desired size and thickness. Transfer the stretched dough to a baking sheet or onto the preheated pizza stone. Spread a thin layer of tomato sauce over the dough, leaving a border around the edges. Arrange the mozzarella slices over the tomato sauce. Add the bell pepper strips and mushroom slices over the mozzarella. Sprinkle oregano over the pizza to add flavor. Baking the Pizza: Place the assembled pizza in the preheated oven and bake for about 12-15 minutes, or until the crust is golden and crispy and the cheese is melted and bubbly. Finishing and Serving: Remove the pizza from the oven and let it rest for a few minutes. Slice the pizza and serve hot. Enjoy this delicious and healthy Vegetarian Pizza!",
+        steps: "- Preparing the Ingredients: Start by preparing the ingredients for the pizza. Slice the tomatoes into thin rounds and the mozzarella into slices. Cut the bell peppers into thin strips and slice the mushrooms. Preheat the oven to 220°C (425°F) and place a pizza stone or a baking sheet in the oven to heat.\n- Assembling the Pizza: Roll out the pizza dough on a floured surface until it reaches the desired size and thickness. Transfer the stretched dough to a baking sheet or onto the preheated pizza stone. Spread a thin layer of tomato sauce over the dough, leaving a border around the edges. Arrange the mozzarella slices over the tomato sauce. Add the bell pepper strips and mushroom slices over the mozzarella. Sprinkle oregano over the pizza to add flavor.\n- Baking the Pizza: Place the assembled pizza in the preheated oven and bake for about 12-15 minutes, or until the crust is golden and crispy and the cheese is melted and bubbly.\n- Finishing and Serving: Remove the pizza from the oven and let it rest for a few minutes. Slice the pizza and serve hot. Enjoy this delicious and healthy Vegetarian Pizza!",
         rating: 4.7,
         category: ["vegetarian", "italian", "pizza"],
         vegan: true,
