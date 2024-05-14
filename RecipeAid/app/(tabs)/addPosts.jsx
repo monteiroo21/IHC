@@ -74,6 +74,11 @@ const addPosts = () => {
         { key: 'Mexican', value: 'Mexican' },
         { key: 'Chinese', value: 'Chinese' },
         { key: 'Japanese', value: 'Japanese' },
+        { key: 'steak', value: 'Steak' },
+        { key: 'pasta', value: 'Pasta' },
+        { key: 'salad', value: 'Salad' },
+        { key: 'soup', value: 'Soup' },
+        { key: 'fish', value: 'Fish' }
     ];
 
     const [formRecipe, setFormRecipe] = useState({
