@@ -14,7 +14,7 @@ const Home = () => {
     return (
         <SafeAreaView className="h-full bg-slate-900">
             <ScrollView style={{ marginTop: -30 }}>
-                <Text className="text-3xl text-white-500 font-extrabold text-center mb-3 mt-5">
+                <Text className="text-3xl text-white font-extrabold text-center mb-3 mt-5">
                     Suggestions for you
                 </Text>
                 <FlatList
@@ -36,7 +36,7 @@ const Home = () => {
                     showsHorizontalScrollIndicator={false}
                 />
                 <View className="mt-10">
-                    <Text className="text-3xl text-white-500 font-extrabold text-center mb-3">
+                    <Text className="text-3xl text-white font-extrabold text-center mb-3">
                         Categories
                     </Text>
                     <View className="justify-center items-center mb-5">

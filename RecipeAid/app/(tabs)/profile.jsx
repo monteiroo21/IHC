@@ -22,14 +22,14 @@ const Profile = ({ navigation }) => {
                     <ButtonStandart
                         title="Edit Profile"
                         containerStyles="mt-3"
-                        textStyles="text-white-500 font-bold text-sm"
+                        textStyles="text-white font-bold text-sm"
                     />
-                    <Text className="text-3xl text-white-500 font-extrabold text-center mb-7 mt-3">Manuel Augusto</Text>
+                    <Text className="text-3xl text-white font-extrabold text-center mb-7 mt-3">Manuel Augusto</Text>
                 </View>
 
                 <View>
                     <TouchableOpacity className="flex-row ml-3">
-                        <Text className="text-2xl text-white-500 font-extrabold mb-3 ml-4 border-2 rounded-xl border-white-500 px-2">
+                        <Text className="text-2xl text-white font-extrabold mb-3 ml-4 border-2 rounded-xl border-white px-2">
                             Posted Recipes
                         </Text>
                     </TouchableOpacity>
@@ -56,7 +56,7 @@ const Profile = ({ navigation }) => {
 
                 <View className="mt-10">
                     <TouchableOpacity className="flex-row ml-3">
-                        <Text className="text-2xl text-white-500 font-extrabold mb-3 ml-4 border-2 rounded-xl border-white-500 px-2">
+                        <Text className="text-2xl text-white font-extrabold mb-3 ml-4 border-2 rounded-xl border-white px-2">
                             Saved Recipes
                         </Text>
                     </TouchableOpacity>
