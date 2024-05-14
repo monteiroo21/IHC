@@ -33,7 +33,6 @@ const categoryScreen = () => {
     return (
         <>
         <NavBar />
-        <StatusBar backgroundColor='#0F766E' />
         <SafeAreaView className="h-full bg-slate-900">
             <View className="mt-5 justify-center items-center mb-7">
                 <Text className="text-teal-600 text-3xl font-bold">{category1}</Text>

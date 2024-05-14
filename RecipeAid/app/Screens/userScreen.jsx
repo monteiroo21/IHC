@@ -44,7 +44,6 @@ const UserScreen = () => {
   return (
     <>
     <NavBar />
-    <StatusBar backgroundColor='#0F766E' />
     <SafeAreaView className="h-full bg-slate-900">
       <ScrollView>
         <View className="justify-center items-center mt-4">

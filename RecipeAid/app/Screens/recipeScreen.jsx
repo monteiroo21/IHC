@@ -64,7 +64,6 @@ const
     return (
       <>
       <NavBar />
-      <StatusBar backgroundColor='#0F766E' />
       <ScrollView className='p-4 bg-slate-900'>
         <View className="justify-center items-center mt-4">
           {imagem()}
