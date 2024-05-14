@@ -306,7 +306,7 @@ const addPosts = () => {
 
             <ScrollView>
                 <View>
-                    <Text className="text-3xl text-lime-500 font-extrabold text-center mb-5 mt-2">Last posted recipes</Text>
+                    <Text className="text-3xl text-white-500 font-extrabold text-center mb-5 mt-2">Last posted recipes</Text>
                 </View>
 
                 <View className="flex items-center">
