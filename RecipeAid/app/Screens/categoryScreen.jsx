@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { savedRecipes, recipes } from '../../constants/data';
 import CardStandart from '../../components/CardStandart';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import NavBar from '../../components/NavBar';
 
 const categoryScreen = () => {
     const [category1, setCategory1] = useState("");

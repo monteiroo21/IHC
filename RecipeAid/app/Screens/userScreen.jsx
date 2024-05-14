@@ -5,6 +5,7 @@ import { Image } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { recipes } from '../../constants/data';
 import CardStandart from '../../components/CardStandart';
+import NavBar from '../../components/NavBar';
 
 const UserScreen = () => {
   const [user, setUser] = useState(null);
