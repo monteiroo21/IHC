@@ -3,6 +3,7 @@ import { View, Text, ScrollView, Button, TextInput, Image, Alert, TouchableOpaci
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { savedRecipes, setSavedRecipes } from '../../constants/data';
 import { icons } from '../../constants/icons';
+import NavBar from '../../components/NavBar';
 
 const
   RecipeScreen = () => {
@@ -62,6 +63,7 @@ const
 
     return (
       <ScrollView className='p-4 bg-slate-900'>
+        <NavBar />
         <View className="justify-center items-center mt-4">
           {imagem()}
         </View>

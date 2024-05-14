@@ -42,6 +42,7 @@ const UserScreen = () => {
 
   return (
     <SafeAreaView className="h-full bg-slate-900">
+      <NavBar />
       <ScrollView>
         <View className="justify-center items-center mt-4">
           <Image source={image} resizeMode='cover' className="w-40 h-40 rounded-full" />
