@@ -9,7 +9,7 @@ import SearchBar from './SearchBar.jsx'
 function SearchUsers() {
     const [filteredData, setFilteredData] = useState([]);
     const [showRecommended, setShowRecommended] = useState(true);
-    const user = users;
+    const user = users.slice(0, 3);
 
     const handleSearch = (query) => {
         if (query.trim() === '') {

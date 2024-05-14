@@ -3,6 +3,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Vegetables from './Vegetables';  // New component for searching by name
 import Proteins from './Proteins';
+import Fruits from './Fruits';
+import Cereals from './Cereals';
 import { View } from 'react-native';
 
 const Tab = createMaterialTopTabNavigator();
@@ -26,12 +28,22 @@ function RecipesTabs() {
         <Tab.Screen
           name="Vegetables"
           component={Vegetables}
-          options={{ tabBarLabel: 'Vegetables' }}
+          options={{ tabBarLabel: 'Vegetable' }}
         />
         <Tab.Screen
           name="Proteins"
           component={Proteins}
-          options={{ tabBarLabel: 'Proteins' }}
+          options={{ tabBarLabel: 'Protein' }}
+        />
+        <Tab.Screen
+          name="Fruits"
+          component={Fruits}
+          options={{ tabBarLabel: 'Fruit' }}
+        />
+        <Tab.Screen
+          name="Cereals"
+          component={Cereals}
+          options={{ tabBarLabel: 'Cereal' }}
         />
       </Tab.Navigator>
     </View>
