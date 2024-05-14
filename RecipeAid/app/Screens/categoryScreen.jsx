@@ -1,4 +1,4 @@
-import { View, Text, FlatList, ScrollView } from 'react-native'
+import { View, Text, FlatList, ScrollView, StatusBar } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { savedRecipes, recipes } from '../../constants/data';
@@ -33,6 +33,7 @@ const categoryScreen = () => {
     return (
         <>
         <NavBar />
+        <StatusBar backgroundColor='#0F766E' />
         <SafeAreaView className="h-full bg-slate-900">
             <View className="mt-5 justify-center items-center mb-7">
                 <Text className="text-teal-600 text-3xl font-bold">{category1}</Text>

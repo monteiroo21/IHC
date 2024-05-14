@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, FlatList, TouchableOpacity } from 'react-native'
+import { View, Text, ScrollView, FlatList, TouchableOpacity, StatusBar } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Image } from 'react-native'
@@ -44,6 +44,7 @@ const UserScreen = () => {
   return (
     <>
     <NavBar />
+    <StatusBar backgroundColor='#0F766E' />
     <SafeAreaView className="h-full bg-slate-900">
       <ScrollView>
         <View className="justify-center items-center mt-4">

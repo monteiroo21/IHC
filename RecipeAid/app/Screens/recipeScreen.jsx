@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, StatusBar } from 'react';
 import { View, Text, ScrollView, Button, TextInput, Image, Alert, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { savedRecipes, setSavedRecipes } from '../../constants/data';
@@ -64,6 +64,7 @@ const
     return (
       <>
       <NavBar />
+      <StatusBar backgroundColor='#0F766E' />
       <ScrollView className='p-4 bg-slate-900'>
         <View className="justify-center items-center mt-4">
           {imagem()}
