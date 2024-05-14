@@ -16,6 +16,16 @@ function Proteins() {
   const pro = proteins;
   const bro = broccoli;
 
+  const [ingredientInput, setIngredientInput] = useState("");
+
+  const addIngredient = () => {
+    const newIngredient = ingredientInput.trim();
+    if (newIngredient && !selectedIngredients.includes(newIngredient)) {
+      handleSelectIngredient(newIngredient);
+    }
+    setIngredientInput(""); // Clear input after adding
+  };
+
   const handlePress = () => {
     router.push('../Screens/recipeScreen');
   };
@@ -132,6 +142,22 @@ function Proteins() {
                   </TouchableOpacity>
               </View>
             ))}
+
+
+            <View className='flex-row items-center space-x-4 px-3 bg-black-100 mt-4 ml-1 mr-32'>
+                <TextInput
+                    className='text-black mt-0.5 flex-1 text-base font-semibold'
+                    value={ingredientInput}
+                    placeholder='Add specific ingredients ...'
+                    placeholderTextColor="#fff"
+                    onChangeText={setIngredientInput}
+                    onSubmitEditing={addIngredient}
+                />
+                <TouchableOpacity onPress={addIngredient}>
+                    <Image source={icons.plus} tintColor={"#fff"} resizeMode='contain' className="w-5 h-5 right-0" />
+                </TouchableOpacity>
+
+            </View>
 
 <           View style={styles.buttonContainer}>
               <TouchableOpacity onPress={() => setModalVisible(true)}>
