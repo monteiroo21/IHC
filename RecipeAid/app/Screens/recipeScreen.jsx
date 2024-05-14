@@ -62,8 +62,9 @@ const
     };
 
     return (
+      <>
+      <NavBar />
       <ScrollView className='p-4 bg-slate-900'>
-        <NavBar />
         <View className="justify-center items-center mt-4">
           {imagem()}
         </View>
@@ -106,6 +107,7 @@ const
           <Text></Text>
         </View>
       </ScrollView>
+      </>
     );
   };
 
