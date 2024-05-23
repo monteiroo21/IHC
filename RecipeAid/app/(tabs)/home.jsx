@@ -46,7 +46,7 @@ const Home = () => {
                                 image={icons.pizzaIcon}
                             />
                             <CategoryButton
-                                category="Hamburguer"
+                                category="Hamburger"
                                 image={icons.hamburgerIcon}
                             />
                         </View>

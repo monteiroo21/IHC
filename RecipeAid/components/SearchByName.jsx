@@ -26,7 +26,7 @@ function SearchByName() {
         <SafeAreaView className="h-full bg-slate-900 flex items-center">
             <SearchBar className="ml-4 mt-4" placeholder={"Search Recipe..."} onSearchSubmit={handleSearch}></SearchBar>
             <FlatList
-                className="mt-6 mb-72"
+                className="mt-6"
                 data={filteredData}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => (

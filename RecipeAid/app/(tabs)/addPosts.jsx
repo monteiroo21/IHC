@@ -78,7 +78,20 @@ const addPosts = () => {
         { key: 'pasta', value: 'Pasta' },
         { key: 'salad', value: 'Salad' },
         { key: 'soup', value: 'Soup' },
-        { key: 'fish', value: 'Fish' }
+        { key: 'fish', value: 'Fish' },
+        { key: 'pizza', value: 'Pizza' },
+        { key: 'burger', value: 'Burger' },
+        { key: 'cake', value: 'Cake' },
+        { key: 'cookie', value: 'Cookie' },
+        { key: 'ice cream', value: 'Ice Cream' },
+        { key: 'pie', value: 'Pie' },
+        { key: 'bread', value: 'Bread' },
+        { key: 'sandwich', value: 'Sandwich' },
+        { key: 'taco', value: 'Taco' },
+        { key: 'sushi', value: 'Sushi' },
+        { key: 'ramen', value: 'Ramen' },
+        { key: 'other', value: 'Other' }
+
     ];
 
     const [formRecipe, setFormRecipe] = useState({
