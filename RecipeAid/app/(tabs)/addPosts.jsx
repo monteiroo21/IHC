@@ -354,6 +354,12 @@ const addPosts = () => {
                         </View>
                     </Pressable>
                 </View>
+
+                <ButtonStandart
+                        title="Import Recipe File"
+                        containerStyles="mt-6 ml-28 mr-28"
+                        textStyles="text-white font-bold text-sm"
+                />
             </ScrollView>
         </SafeAreaView>
     )

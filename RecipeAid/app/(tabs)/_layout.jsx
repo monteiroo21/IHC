@@ -52,10 +52,10 @@ const TabsLayout = () => {
                     tabBarIcon: ({ color, focused }) => <TabIcon icon={icons.post} color={color} name="Add Recipe" focused={focused} iconBold={icons.postBold} />
                 }} />
 
-                <Tabs.Screen name="profile" options={{
-                    title: 'Profile',
+                <Tabs.Screen name="recipes" options={{
+                    title: 'My Recipes',
                     headerShown: false,
-                    tabBarIcon: ({ color, focused }) => <TabIcon icon={icons.profile} color={color} name="Profile" focused={focused} iconBold={icons.profileBold} />
+                    tabBarIcon: ({ color, focused }) => <TabIcon icon={icons.save} color={color} name="My Recipes" focused={focused} iconBold={icons.save} />
                 }} />
 
             </Tabs>

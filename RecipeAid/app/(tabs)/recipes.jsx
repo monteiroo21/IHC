@@ -10,23 +10,13 @@ import ButtonStandart from '../../components/ButtonStandart'
 import { router } from 'expo-router';
 import RecipeScreen from '../../components/recipeScreen'
 
-const Profile = ({ navigation }) => {
+const Recipes = ({ navigation }) => {
     const firstsMyRecipes = recipes.filter(recipe => recipe.user === "Manuel Augusto").slice(0, 3);
     const firstsSavedRecipes = savedRecipes.slice(0, 3);
 
     return (
         <SafeAreaView className="h-full bg-slate-900">
             <ScrollView>
-                <View className="justify-center items-center">
-                    <Image source={icons.persona} resizeMode='contain' className="w-40 h-40 rounded-full" />
-                    <ButtonStandart
-                        title="Edit Profile"
-                        containerStyles="mt-3"
-                        textStyles="text-white font-bold text-sm"
-                    />
-                    <Text className="text-3xl text-white font-extrabold text-center mb-7 mt-3">Manuel Augusto</Text>
-                </View>
-
                 <View>
                     <TouchableOpacity className="flex-row ml-3">
                         <Text className="text-2xl text-white font-extrabold mb-3 ml-4 border-2 rounded-xl border-white px-2">
@@ -85,4 +75,4 @@ const Profile = ({ navigation }) => {
     )
 }
 
-export default Profile
+export default Recipes

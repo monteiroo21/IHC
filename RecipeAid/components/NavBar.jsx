@@ -51,7 +51,7 @@ const NavBar = () => {
                     </View>
                 }
                 rightComponent={
-                    <TouchableOpacity onPress={() => router.push('/profile')}>
+                    <TouchableOpacity onPress={() => router.push('/Screens/profile')}>
                         <Image
                             source={icons.persona}
                             resizeMode='contain'
@@ -115,8 +115,13 @@ const NavBar = () => {
                 </View>
 
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, borderBottomWidth: 3, borderColor: '#84CC16' }}>
+                    <Image source={icons.save} style={{ width: 24, height: 24, marginRight: 8, tintColor: '#84CC16', marginRight: 6, marginLeft: 15 }} onPress={() => handleMenuItemClick('/recipes')} />
+                    <Text style={{ margin: 15 }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/recipes')}>My Recipes</Text>
+                </View>
+
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, borderBottomWidth: 3, borderColor: '#84CC16' }}>
                     <Image source={icons.profileBold} style={{ width: 24, height: 24, marginRight: 8, tintColor: '#84CC16', marginRight: 6, marginLeft: 15 }} onPress={() => handleMenuItemClick('/profile')} />
-                    <Text style={{ margin: 15 }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/profile')}>Profile</Text>
+                    <Text style={{ margin: 15 }} className="text-lime-500 text-3xl" onPress={() => handleMenuItemClick('/Screens/profile')}>Profile</Text>
                 </View>
 
             </Animated.View >

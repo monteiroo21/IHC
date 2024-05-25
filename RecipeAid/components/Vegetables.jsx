@@ -145,14 +145,14 @@ function Vegetables() {
             ))}
 
             <View className='flex-row items-center space-x-4 px-3 bg-black-100 mt-4 ml-1 mr-32'>
-                <TextInput
-                    className='text-black mt-0.5 flex-1 text-base font-semibold'
-                    value={ingredientInput}
-                    placeholder='Add specific ingredients ...'
-                    placeholderTextColor="#fff"
-                    onChangeText={setIngredientInput}
-                    onSubmitEditing={addIngredient}
-                />
+            <TextInput
+                style={styles.textInput}
+                value={ingredientInput}
+                placeholder='Add specific ingredients ...'
+                placeholderTextColor="#fff"
+                onChangeText={setIngredientInput}
+                onSubmitEditing={addIngredient}
+            />
                 <TouchableOpacity onPress={addIngredient}>
                     <Image source={icons.plus} tintColor={"#fff"} resizeMode='contain' className="w-5 h-5 right-0" />
                 </TouchableOpacity>
@@ -188,8 +188,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 10,
+  },
+
+  textInput: {
+    color: '#fff',
+    marginTop: 0.5,
+    flex: 1,
+    fontSize: 16, // equivalent to 'text-base'
+    fontWeight: '600', // equivalent to 'font-semibold'
   }
 });
+
 
 
 export default Vegetables;

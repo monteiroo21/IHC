@@ -21,6 +21,7 @@ import save from '../assets/icons/save.png'
 import saved from '../assets/icons/saved.png'
 import share from '../assets/icons/share.png'
 import backArrow from '../assets/icons/backArrow.png'
+import saveNotBold from '../assets/icons/saveNotBold.png'
 
 
 export const icons = {
@@ -47,4 +48,5 @@ export const icons = {
     saved,
     share,
     backArrow,
+    saveNotBold
 }
