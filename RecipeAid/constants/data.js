@@ -137,7 +137,26 @@ let recipes = [
         category: ["vegetarian", "breakfast"],
         vegan: true,
         time: 45
-    }    
+    },
+    {
+        user: "Manuel Augusto",
+        title: "Broccoli Frittata",
+        image: recipesImages.recipe2,
+        description: "Broccoli and Cheese Frittata is a delightful and easy-to-make dish that combines fresh broccoli with eggs and cheese, baked to perfection to create a light and fluffy meal that's great for any time of day.",
+        ingredients: [
+            "Eggs",
+            "Broccoli",
+            "Cheddar cheese",
+            "Milk",
+            "Salt",
+            "Pepper"
+        ],
+        steps: "- Preparing the Ingredients: Start by chopping the broccoli into small florets and grating the cheddar cheese. In a mixing bowl, whisk the eggs with milk, salt, and pepper until well combined. Preheat the oven to 200°C (400°F).\n- Assembling the Frittata: In a non-stick skillet, sauté the broccoli florets until they are just tender. Pour the egg mixture over the broccoli and sprinkle the grated cheese evenly on top.\n- Baking the Frittata: Transfer the skillet to the preheated oven and bake for 15-20 minutes, or until the eggs are set and the top is golden brown.\n- Finishing and Serving: Remove the frittata from the oven, let it cool for a few minutes, then slice and serve while warm.",
+        rating: 4.8,
+        category: ["vegetarian", "breakfast"],
+        vegan: true,
+        time: 45
+    }      
 ];
 
 let ingredients = [
